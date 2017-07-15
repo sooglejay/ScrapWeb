@@ -12,3 +12,10 @@ SeleniumServer:selenium-server-standalone-3.4.0.jar that I have downloaded for y
 
 java  -Dwebdriver.chrome.driver=/your path to webdriver/chromedriver -jar  ./install/selenium-server-standalone-3.4.0.jar
 
+
+3. Run
+
+php ./example.php
+
+
+That's it!
