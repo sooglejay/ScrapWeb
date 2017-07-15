@@ -4,13 +4,13 @@ This is a php scrap demo using php-webdriver powered by facebook
 
 ChromeWebDriver:https://sites.google.com/a/chromium.org/chromedriver/downloads
 
-SeleniumServer:selenium-server-standalone-3.4.0.jar that I have downloaded for you below install folder
+SeleniumServer:selenium-server-standalone-3.4.0.jar that I have downloaded for you below lib folder
 
 
 
-2. Install Selenium ：
+2. lib Selenium ：
 
-java  -Dwebdriver.chrome.driver=/your path to webdriver/chromedriver -jar  ./install/selenium-server-standalone-3.4.0.jar
+java  -Dwebdriver.chrome.driver=/your path to webdriver/chromedriver -jar  ./lib/selenium-server-standalone-3.4.0.jar
 
 
 3. Run
