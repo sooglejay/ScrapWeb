@@ -7,80 +7,24 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 
 require_once('vendor/autoload.php');
 
-class ScrapHandle
+class ScarpWeb
 {
-    private $userName;
-    private $password;
-    private $validateCode;
-    public $validateElem;
+    public $validateCodeImgLink;
 
-    private $loginURL = 'http://www.63si.com.cn:8888/lswtqt/toLogin.jhtml';
-    private $host = 'http://localhost:4444/wd/hub'; // this is the default
-    private $capabilities;
-    private $webDriver;
-    private $timeOut = 5000;
-
-    private function initWebDriver()
-    {
-        $this->capabilities= DesiredCapabilities::chrome();
-        $this->webDriver = RemoteWebDriver::create($this->host, $this->capabilities, $this->timeOut);
-        $this->webDriver->get($this->loginURL);
-        $this->webDriver->manage()->deleteAllCookies();
-        $cookie = new Cookie('cookie_name', 'cookie_value');
-        $this->webDriver->manage()->addCookie($cookie);
-    }
-
-    private function getValidateCode()
-    {
-        $validateCode = null;
-        try {
-            $this->validateElem = $this->webDriver->findElement(WebDriverBy::id('codeimg'));
-        } catch (\Exception $e) {
-        } finally {
-            if (!is_null($this->validateElem)) {
-                $validateCode = $this->validateElem->getText();
-            }
+    public function getValidateLinkFromScrap(){
+        if(isset($_POST)&& isset($_POST['validateCodeImgLink'])){
+            $this->validateCodeImgLink = $_POST['validateCodeImgLink'];
         }
-        return $validateCode;
     }
-
     /**
      * ScrapHandle constructor.
      */
     public function __construct()
     {
-        $this->initWebDriver();
-        $this->getValidateCode();
-
-    }
-
-    private function isGetValidateCodeFromServer()
-    {
-        if (isset($_POST) && isset($_POST["mock"])) {
-            echo 123;
-            return true;
-        }
-        return false;
-    }
-
-    private function doLogin()
-    {
-        if (isset($_POST)) {
-            if (isset($_POST["username"])) {
-                $this->userName = $_POST["username"];
-            }
-            if (isset($_POST["password"])) {
-                $this->userName = $_POST["password"];
-            }
-            if (isset($_POST["validateCode"])) {
-                $this->userName = $_POST["validateCode"];
-            }
-        }
-        $this->initWebDriver();
+        $this->getValidateLinkFromScrap();
     }
 }
-$handler = new ScrapHandle();
-
+$scrapWeb = new ScarpWeb();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,7 +67,7 @@ $handler = new ScrapHandle();
                         <div class="controls">
                             <input type="text" id="validateCode" name="validateCode" placeholder="请输入验证码"
                                    class="input-xlarge">
-                            <img src="<?php $handler->?>">
+                            <img src="<?php $scrapWeb->validateCodeImgLink?>">
                         </div>
                     </div>
 
@@ -133,7 +77,6 @@ $handler = new ScrapHandle();
                             <button class="btn btn-success">Login</button>
                         </div>
                     </div>
-
                 </fieldset>
             </form>
         </div>

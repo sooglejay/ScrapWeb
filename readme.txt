@@ -10,7 +10,7 @@ SeleniumServer:selenium-server-standalone-3.4.0.jar that I have downloaded for y
 
 2. lib Selenium ：
 
-java  -Dwebdriver.chrome.driver=/your path to webdriver/chromedriver -jar  ./lib/selenium-server-standalone-3.4.0.jar
+java  -Dwebdriver.chrome.driver=./lib/chromedriver -jar  ./lib/selenium-server-standalone-3.4.0.jar
 
 
 3. Run
