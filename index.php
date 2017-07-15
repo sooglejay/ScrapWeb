@@ -1,12 +1,4 @@
 <?php
-// An example of using php-webdriver.
-namespace Facebook\WebDriver;
-
-use Facebook\WebDriver\Remote\DesiredCapabilities;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
-
-require_once('vendor/autoload.php');
-
 class ScarpWeb
 {
     public $validateCodeImgLink;

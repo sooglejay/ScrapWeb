@@ -1,21 +1,4 @@
-This is a php scrap demo using php-webdriver powered by facebook
+This is a normal php web project  using bootstrap js, showing the result of ScrapHandler
 
-1. Download
+For more information about ScrapHandler, please refer to ScrapHandler project
 
-ChromeWebDriver:https://sites.google.com/a/chromium.org/chromedriver/downloads
-
-SeleniumServer:selenium-server-standalone-3.4.0.jar that I have downloaded for you below lib folder
-
-
-
-2. lib Selenium ：
-
-java  -Dwebdriver.chrome.driver=./lib/chromedriver -jar  ./lib/selenium-server-standalone-3.4.0.jar
-
-
-3. Run
-
-php ./example.php
-
-
-That's it!
