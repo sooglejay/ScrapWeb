@@ -5,51 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
-    <link type="text/css" rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/ScrapWeb/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="span12">
-            <form class="form-horizontal" action='/ScrapWeb/index.php' method="POST">
-                <fieldset>
-                    <div id="legend">
-                        <legend class="">登录</legend>
-                    </div>
-                    <div class="control-group">
-                        <!-- Username -->
-                        <label class="control-label" for="username">账号</label>
-                        <div class="controls">
-                            <input type="number" id="username" name="username" placeholder="请输入手机号"
-                                   class="input-xlarge">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <!-- Password-->
-                        <label class="control-label" for="password">密码</label>
-                        <div class="controls">
-                            <input type="password" id="password" name="password" placeholder="请输入密码"
-                                   class="input-xlarge">
-                        </div>
-                    </div>
 
-                    <div class="control-group" style="margin-top: 12px">
-                        <!-- Button -->
-                        <div class="controls">
-                            <button class="btn btn-success" id="btnLogin">Login</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+<div class="container">
+
+    <form class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="userName">用户名</label>
+            <div class="controls">
+                <input type="text" id="userName" placeholder="请输入手机号码">
+            </div>
         </div>
-    </div>
+        <div class="control-group">
+            <label class="control-label" for="password">密码</label>
+            <div class="controls">
+                <input type="password" id="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="control-group" style="margin-top: 12px">
+            <div class="controls">
+                <button type="submit" class="btn btn-success" id="btnLogin">登录</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
-<script type="text/javascript" src="lib/jquery.min.js"></script>
-<script type="text/javascript" src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="/ScrapWeb/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/ScrapWeb/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/ScrapWeb/js/index.js"></script>
 
 </body>
 </html>

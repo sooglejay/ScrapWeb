@@ -1,5 +1,5 @@
 <?php
-require_once 'WebCurlModel.php';
+require_once 'curlModel.php';
 
 class WebController
 {
@@ -10,22 +10,27 @@ class WebController
      */
     public function __construct()
     {
-        if (isset($_POST) && isset($_POST['username'])) {
-            $userName = $_POST['username'];
-            $password = $_POST['password'];
-            $this->curlHandler = new WebCurlModel();
-            $this->curlHandler->doLogin($userName, $password);
-            $indexHtml = file_get_contents("./web/index.html");
-            echo $indexHtml;
-        } else {
-            $loginHtml = file_get_contents("./web/login.html");
-            echo $loginHtml;
+        if (isset($_POST["action"])) {
+            $func = "do" . $_POST["action"];
+            $this->$func();
+            return;
         }
+
+        // default to login
+        $loginHtml = file_get_contents("./web/login.html");
+        echo $loginHtml;
+
     }
 
-    private function doLogin($username, $password)
+    private function doLogin()
     {
-
+        $userName = $_POST['userName'];
+        $password = $_POST['password'];
+        $this->curlHandler = new curlModel();
+        $this->curlHandler->doLogin();
+//        $indexHtml = file_get_contents("/ScrapWeb/web/index.html");
+//        echo $indexHtml;
+//        echo "1";
     }
 }
 

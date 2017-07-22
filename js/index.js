@@ -3,40 +3,22 @@
  */
 
 $(function () {
-   $("#btnLogin").click(function () {
-       startToMock();
-   });
-   setTimeout(function () {
-       readTextFile("ScrapWeb/readme.txt");
-   },5000);
-});
-function startToMock() {
-    $.ajax({
-        url:'/ScrapHandler/index.php',
-        method:'POST',
-        data:{mock:'yes'},
-        success:function (data) {
-            console.log(data);
-        },
-        error:function (data) {
-            console.log(data);
+
+    $("#btnLogin").click(function () {
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        if (!userName || userName.length < 1) {
+            alert("账户不能为空");
+            return false;
         }
+        if (!password || password.length < 1) {
+            alert("密码不能为空！");
+            return false;
+        }
+        $.post("/ScrapWeb/index.php",{'action': 'Login', 'userName': userName, 'password': password})
+            .done(function( data ) {
+                alert( "Data Loaded: " + data );
+            });
+
     });
-}
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    };
-    rawFile.send(null);
-}
+});
