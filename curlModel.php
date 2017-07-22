@@ -7,18 +7,21 @@ class curlModel
     /**
      * 静态成品变量 保存全局实例
      */
-    private static  $_instance = NULL;
+    private static $_instance = NULL;
+
 
     /**
      * 私有化默认构造方法，保证外界无法直接实例化
      */
-    private function __construct() {
+    private function __construct()
+    {
     }
 
     /**
      * 静态工厂方法，返还此类的唯一实例
      */
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (is_null(self::$_instance)) {
             self::$_instance = new curlModel();
         }
@@ -32,14 +35,16 @@ class curlModel
     private $loginUrl = "http://www.63si.com.cn:8000/lsapp_server/front/wxlogin/login";
 
 
-    public function doLogin($userName = "18784502251", $password = "1")
+    public function doLogin()
     {
+        $str = file_get_contents('userInfo.txt');
+        $userInfo = unserialize($str);
         $params = array(
             "loginid_type" => "tel",
             "usertype" => "aac001",
             "number" => "userlogin",
-            "username" => $userName,
-            "password" => $password
+            "username" => $userInfo["userName"],
+            "password" => $userInfo["password"]
         );
         requests::post($this->loginUrl, $params);
 
@@ -50,9 +55,11 @@ class curlModel
 
     public function getUserBasicInfo()
     {
+        // first login
+        $this->doLogin();
 
 //1. 基本信息查询
-// 首先获取aac001 的值
+// 获取aac001 的值
         try {
             if (is_null($this->aac001)) {
                 $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
@@ -62,7 +69,7 @@ class curlModel
             $this->aac001 = null;
         }
         if (is_null($this->aac001)) {
-           return null;
+            return null;
         }
 // 然后就开始查询
         $startrow = 1;
@@ -77,11 +84,13 @@ class curlModel
 
     }
 
-    public  function getCanBaoInfo()
+    public function getCanBaoInfo()
     {
+        // first login
+        $this->doLogin();
 
 //2. 参保信息查询
-// 首先获取aac001 的值
+// 获取aac001 的值
         try {
             if (is_null($this->aac001)) {
                 $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
@@ -110,9 +119,11 @@ class curlModel
      */
     public function getYiBaoInfo()
     {
+        // first login
+        $this->doLogin();
 
-//2. 参保信息查询
-// 首先获取aac001 的值
+//3. 医保信息查询
+// 获取aac001 的值
         try {
             if (is_null($this->aac001)) {
                 $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
@@ -121,7 +132,7 @@ class curlModel
             $this->aac001 = null;
         }
         if (is_null($this->aac001)) {
-            return  null;
+            return null;
         }
 // 然后就开始查询
         $startrow = 1;

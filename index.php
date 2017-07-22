@@ -1,32 +1,109 @@
 <?php
 require_once 'curlModel.php';
 
-class App{
+class App
+{
+    /**
+     * 静态成品变量 保存全局实例
+     */
+    private static  $_instance = NULL;
+
 
     /**
-     * App constructor.
+     * 私有化默认构造方法，保证外界无法直接实例化
      */
-    public function __construct()
-    {
+    private function __construct() {
+    }
 
-        if(isset($_POST['action'])){
-            $this->$_POST['action']();
-        }else{
+    /**
+     * 静态工厂方法，返还此类的唯一实例
+     */
+    public static function getInstance() {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new App();
+        }
+        return self::$_instance;
+    }
+
+    public function actionHandler(){
+        if (isset($_REQUEST['action'])) {
+            $this->$_REQUEST['action']();
+        } else {
             $loginHtml = file_get_contents("./web/login.html");
             echo $loginHtml;
         }
-
     }
-    public function doLogin(){
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        if(curlModel::getInstance()->doLogin($userName, $password)){
+
+    public function writeUserInfoToFile($userInfo){
+        $string = serialize($userInfo);
+        $fn= "userInfo.txt";
+        $fh = fopen($fn, 'w');
+        fwrite($fh, $string);
+        fclose($fh);
+    }
+    public function doLogin()
+    {
+        $userName = $_REQUEST['userName'];
+        $password = $_REQUEST['password'];
+
+        $userInfo = array("userName"=>$userName,"password"=>$password);
+        $this->writeUserInfoToFile($userInfo);
+
+        if (curlModel::getInstance()->doLogin()) {
+            // login success
             $indexHtml = file_get_contents("./web/index.html");
             echo $indexHtml;
-        }else{
+        } else {
             echo "Login Error!";
         }
     }
+
+    public function doBasicInfoQuery()
+    {
+        $userInfo = curlModel::getInstance()->getUserBasicInfo()["output"]["resultset"][0];
+
+$header = <<<ET
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Bootstrap 101 Template</title>
+                <link type="text/css" rel="stylesheet" href="/ScrapWeb/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+            </head>
+            <body>
+            
+            <div class="container">
+                <table class="table">
+                    <caption><span>个人基本信息</span></caption>
+ET;
+
+$footer = <<<ET
+                </table>
+            </div>
+
+                <script type="text/javascript" src="/ScrapWeb/lib/jquery.min.js"></script>
+                <script type="text/javascript" src="/ScrapWeb/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+            </body>
+            </html>
+ET;
+
+        $response = "<tr><td>身份证号:</td><td>" . $userInfo['aac002'] . "</td></tr>" .
+            "<tr><td>姓名:</td><td> " . $userInfo['aac003'] . "</td></tr>" .
+            "<tr><td>性别:</td><td> " . $userInfo['aac004'] . "</td></tr>" .
+            "<tr><td>电话:</td><td> " . $userInfo['aae005'] . "</td></tr>" .
+            "<tr><td>出生时间:</td><td> " . $userInfo['aac006'] . "</td></tr>" .
+            "<tr><td>参工时间:</td><td> " . $userInfo['aac007'] . "</td></tr>" .
+            "<tr><td>住址:</td><td> " . $userInfo['aae006'] . "</td></tr>" .
+            "<tr><td>户名:</td><td> " . $userInfo['aae009'] . "</td></tr>" .
+            "<tr><td>银行类别:</td><td> " . $userInfo['aaf002'] . "</td></tr>" .
+            "<tr><td>银行卡号:</td><td> " . $userInfo['aae010'] . "</td></tr>" .
+            "<tr><td>邮编:</td><td> " . $userInfo['aae007'] . "</td></tr>";
+        $response = $header.$response.$footer;
+        echo $response;
+    }
 }
 
-new App();
+
+App::getInstance()->actionHandler();
