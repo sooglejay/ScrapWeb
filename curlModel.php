@@ -106,11 +106,11 @@ class curlModel
         $endrow = 6;
         $number = "cdsi0000006";
 
-        return requests::get($this->queryUserInfo, array(
+        return json_decode(requests::get($this->queryUserInfo, array(
             "aac001" => $this->aac001,
             "startrow" => $startrow,
             "endrow" => $endrow,
-            "number" => $number));
+            "number" => $number)),true);
     }
 
     /***
