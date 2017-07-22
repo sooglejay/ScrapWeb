@@ -131,11 +131,6 @@ class CurlHandler
     }
 }
 
-$t = new CurlHandler();
-// you have to login
-$t->doLogin();
-$t->getUserBasicInfo();
-$t->getCanBaoInfo();
 
 
 

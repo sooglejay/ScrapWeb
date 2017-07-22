@@ -1,7 +1,3 @@
-<?php
-class Login{
-
-    private $notLoginHtml = <<<EOT
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +12,7 @@ class Login{
 <div class="container">
     <div class="row">
         <div class="span12">
-            <form class="form-horizontal" action='./login.php' method="POST">
+            <form class="form-horizontal" action='/ScrapWeb/index.php' method="POST">
                 <fieldset>
                     <div id="legend">
                         <legend class="">登录</legend>
@@ -57,47 +53,3 @@ class Login{
 
 </body>
 </html>
-
-
-
-
-
-EOT;
-
-    /**
-     * Login constructor.
-     */
-    public function __construct()
-    {
-        if(isset($_POST)&&isset($_POST['username'])){
-
-        }else{
-            echo $this->notLoginHtml;
-        }
-    }
-    private function doLogin($username,$password){
-        $curl = curl_init();
-        $cookie_jar = tempnam('./tmp','cookie');
-        curl_setopt($curl, CURLOPT_URL,'http://www.63si.com.cn:8000/lsapp_server/index.html');//这里写上处理登录的界面
-        curl_setopt($curl, CURLOPT_POST, 1);
-        $request = "loginid_type=tel&usertype=aac001&number=userlogin&username=$username&password=$password";
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $request);//传递数据
-        curl_setopt($curl, CURLOPT_COOKIEJAR, $cookie_jar);// 把返回来的cookie信息保存在$cookie_jar文件中
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);//设定返回 的数据是否自动显示
-        curl_setopt($curl, CURLOPT_HEADER, false);//设定是否显示头信息
-        curl_setopt($curl, CURLOPT_NOBODY, false);//设定是否输出页面内容
-        curl_exec($curl);//返回结果
-        curl_close($curl); //关闭
-
-        $curl2 = curl_init();
-        curl_setopt($curl2, CURLOPT_URL, 'http://www.63si.com.cn:8000/lsapp_server/wx/serviceindex.html');//登陆后要从哪个页面获取信息
-        curl_setopt($curl2, CURLOPT_HEADER, false);
-        curl_setopt($curl2, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl2, CURLOPT_COOKIEFILE, $cookie_jar);
-        $content = curl_exec($curl2);
-
-        echo $content;
-    }
-}
-
-?>

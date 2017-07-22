@@ -1,26 +1,33 @@
 <?php
+require_once 'cliScriptScrap.php';
 
-class ScrapWeb
+class WebHandler
 {
+    private $curlHandler;
+
     /**
-     * ScrapHandle constructor.
+     * Login constructor.
      */
     public function __construct()
     {
         if (isset($_POST) && isset($_POST['username'])) {
             $userName = $_POST['username'];
             $password = $_POST['password'];
-            $html =  shell_exec("php cliScriptScrap.php $userName  $password");
+            $this->curlHandler = new CurlHandler();
+            $this->curlHandler->doLogin($userName, $password);
+            $indexHtml = file_get_contents("./web/index.html");
+            echo $indexHtml;
         } else {
-            echo "error";
+            $loginHtml = file_get_contents("./web/login.html");
+            echo $loginHtml;
         }
+    }
+
+    private function doLogin($username, $password)
+    {
+
     }
 }
 
-$scrapWeb = new ScrapWeb();
-
-
-
-
-
-
+new WebHandler();
+?>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乐山公共服务</title>
+    <link rel="stylesheet" href="../css/downup.css">
+    <script src="../js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<div class="title">
+    <h2>城居医疗缴费查询</h2>
+</div>
+<div id="demo">
+    <ul>
+
+    </ul>
+</div>
+<div class="content">
+    <!-- <div>
+        <label id="span-txt">
+            请输入年份
+        </label>
+        <input id="span-input" type="input" value=""></input>
+    </div>
+    <input class="querybutton" onclick="agedpayQuery()" type="button" value="查询"></input> -->
+    <table border="1" cellspacing="0" id="show">
+
+    </table>
+    <span id="nodata"></span>
+</div>
+</body>
+<script>
+    $(function(){
+        /*----------字段说明------------
+
+         aac001--个人编号
+         startrow--开始行 endrow--结束行
+         number--交易编号
+         if中的number表示数据条数
+         ----------------------------------*/
+        var aac001url = "../front/wxlogin/getAAC001";
+        var queryurl = "../front/wxquery/lssi";
+        var aac001 = "";
+        $.ajax({
+            type : "post",
+            url : aac001url,
+            dataType:"json",
+            error : function() {
+            },
+            success : function(data, status, xhr) {
+                aac001 = data.aac001;
+                if(aac001 == undefined||aac001 == ""){
+                    window.location.href="relogin.html";
+                }else{
+                    var number = "cdsi0003014";
+                    $.ajax({
+                        type : "post",
+                        url : queryurl,
+                        dataType:"json",
+                        data : {"aac001":aac001,"startrow":1,"endrow":200,"number":number},
+                        error : function() {
+                        },
+                        success : function(data, status, xhr) {
+                            console.log(data);
+                            var value = data.output;
+                            if(value!=""){
+                                var datalist = data.output.resultset;
+                                var number = data.output.resultset.length;
+                                var trs=[];
+                                var ths=[];
+                                var tds =[];
+                                var trDom;
+
+                                for(var i=0;i<number;i++){
+                                    trDom = $('<ul></ul>');
+                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae001+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="../image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae001+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="../image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="more moreinfo1 odd">'+'<span class="showleft childinfol">'+'缴费基数'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].ykc279+'</span>'+'</li>').appendTo(trDom);
+                                    $('<li class="more moreinfo2">'+'<span class="showleft childinfol">'+'开始月份'+'</span>'+'<span class="showright childinfor">'+datalist[i].aae041+'</span>'+'</li>').appendTo(trDom);
+                                    $('<li class="more moreinfo3 odd">'+'<span class="showleft childinfol">'+'结束月份'+'</span>'+'<span class="showright childinfor">'+datalist[i].aae042+'</span>'+'</li>').appendTo(trDom);
+                                    trs.push(trDom);
+                                    $('<li class="more moreinfo4">'+'<span class="showleft childinfol">'+'缴费状态'+'</span>'+'<span class="showright childinfor">'+datalist[i].aae078+'</span>'+'</li>').appendTo(trDom);
+                                    trs.push(trDom);
+                                }
+                                for(var j=0;j<trs.length;j++){
+                                    $(trs[j]).appendTo($('#demo'));
+                                }
+                            }else{
+                                window.location.href="paynodata.html";
+                            }
+
+                        },
+                        async : true
+                    });
+                }
+            },
+            async : true
+        });
+    })
+    function change(id){
+        var len = id.length;
+        var n = id.substring(4,len);
+        $(".demohead1")[n].style.display="none";
+        $(".demohead2")[n].style.display="block";
+        $(".moreinfo1")[n].style.display="block";
+        $(".moreinfo2")[n].style.display="block";
+        $(".moreinfo3")[n].style.display="block";
+        $(".moreinfo4")[n].style.display="block";
+    }
+    function hide(id){
+        var len = id.length;
+        var n = id.substring(4,len);
+        $(".demohead1")[n].style.display="block";
+        $(".demohead2")[n].style.display="none";
+        $(".moreinfo1")[n].style.display="none";
+        $(".moreinfo2")[n].style.display="none";
+        $(".moreinfo3")[n].style.display="none";
+        $(".moreinfo4")[n].style.display="none";
+    }
+</script>
+</html>
