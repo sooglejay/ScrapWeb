@@ -1,0 +1,96 @@
+
+.title h2{
+    text-align:center;
+    margin:3rem 3% 0rem 3%;
+    font-size:4rem;
+    font-weight:700;
+    background-color: #4bd693;
+    height:9rem;
+    line-height: 9rem;
+    color:#fff;
+}
+.queryBtn{
+    margin-top:2rem;
+    margin-left:2rem;
+    font-size:2.8rem;
+}
+.qbutton{
+    width: 14rem;
+    height: 5rem;
+    border-radius: 3rem;
+    font-size: 2.8rem;
+    margin-left: 2.4rem;
+}
+.active{
+    background-color: #55f59d;
+}
+#content{
+    text-align:center;
+    margin:2rem auto;
+}
+#content span input{
+    height:7rem;
+    width:42%;
+    line-height:7rem;
+    font-size:3rem;
+    background-color:#4bd693;
+    color:white;
+    font-weight:600;
+}
+
+#content table{
+    text-align:center;
+    margin:3rem auto;
+    width:94%;
+    border:0.1rem solid lightgray;
+    font-size:2rem;
+}
+table tr th{
+    height:7rem;
+    font-size:2.8rem;
+}
+.pay{
+    color: #f1cc0e;
+}
+.income{
+    color: #7ef3dd;
+}
+table tr td{
+    height:6rem;
+    font-size:2.4rem;
+    border-top: solid lightgray 0.1rem;
+}
+#nodata{
+    float:left;
+    margin:8rem 25%;
+    font-size:2rem;
+    color:gray;
+}
+#tips{
+    float:left;
+    text-align:center;
+    margin:5rem 31%;
+    font-size:2.6rem;
+    color:lightgreen;
+}
+#incomequery{
+    margin-right:3%;
+}
+#outlayquery{
+    margin-left:3%;
+}
+.even{
+    background-color: #d4ffe0;
+}
+/*
+.incometd{
+	background-color: #b6f7f0;
+} */
+.left{
+    float:left;
+    margin-left:2rem;
+}
+.right{
+    float:right;
+    margin-right:2rem;
+}

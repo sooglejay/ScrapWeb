@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>基本信息</title>
+    <link rel="stylesheet" href="/ScrapWeb/css/basicinfo.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+
+<div class="main">
+    <table id="show">
+
+    </table>
+    <span id="nodata"></span>
+</div>
+</body>
+<script>
+    $(function () {
+
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doBasicInfoQueryAction',
+            dataType: "json",
+
+            error: function (e) {
+                window.location.href="/ScrapWeb/index.php";
+            },
+            success: function (data, status, xhr) {
+                var trs = [];
+                var ths = [];
+                var tds = [];
+                var trDom;
+                var IDNo = data.output.resultset[0].aac002;
+                var name = data.output.resultset[0].aac003;
+                var sex = data.output.resultset[0].aac004;
+                var phoneNo = data.output.resultset[0].aae005;
+                var birthtime = data.output.resultset[0].aac006;
+                var worktime = data.output.resultset[0].aac007;
+                var zhuzhi = data.output.resultset[0].aae006;
+                var postcode = data.output.resultset[0].aae007;
+                var bankNo = data.output.resultset[0].aae010;
+                var accountName = data.output.resultset[0].aae009;
+                var banktype = data.output.resultset[0].aaf002;
+                var IDlen = IDNo.length;
+                var banklen = bankNo.length;
+                if (IDlen >= 15) {
+                    IDNo = IDNo.substring(0, 6) + "********" + IDNo.substring(IDlen - 4, banklen);
+                }
+                if (banklen >= 15) {
+                    bankNo = bankNo.substring(0, 6) + "********" + bankNo.substring(banklen - 4, banklen);
+                }
+
+                trDom = $('<tr></tr>');
+                $('<th>' + '个人基本信息' + '</th>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '身份证号:' + '<span class="lessright">' + IDNo + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '姓名:' + '<span class="right">' + name + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '性别:' + '<span class="right">' + sex + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '出生时间:' + '<span class="lessright">' + birthtime + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '参工时间:' + '<span class="lessright">' + worktime + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '住址:' + '<span class="right">' + zhuzhi + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '户名:' + '<span class="right">' + accountName + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '银行类别:' + '<span class="lessright">' + banktype + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '银行卡号:' + '<span class="lessright">' + bankNo + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td id="unitname">' + '电话:' + '<span class="right">' + phoneNo + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                trDom = $('<tr></tr>');
+                $('<td>' + '邮编:' + '<span class="right">' + postcode + '</span>' + '</td>').appendTo(trDom);
+                trs.push(trDom);
+                for (var j = 0; j < trs.length; j++) {
+                    $(trs[j]).appendTo($('#show'));
+                }
+            },
+            async: true
+        });
+    });
+
+</script>
+</html>

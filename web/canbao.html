@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乐山公共服务</title>
+    <link rel="stylesheet" href="/ScrapWeb/css/insuredinfo.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<!-- <div class="title">
+    <h2>参保信息查询</h2>
+</div> -->
+<div class="main">
+    <table class="table" id="show0">
+    </table>
+    <table class="table" id="show1" style="display:none;">
+    </table>
+    <table class="table" id="show2" style="display:none;">
+    </table>
+    <table class="table" id="show3" style="display:none;">
+    </table>
+    <table class="table" id="show4" style="display:none;">
+    </table>
+    <table class="table" id="show5" style="display:none;">
+    </table>
+    <table class="table" id="show6" style="display:none;">
+    </table>
+    <div id="nodata"></div>
+</div>
+</body>
+<script>
+    $(function () {
+
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doCanBaoInfoQueryAction',
+            dataType: "json",
+            error: function (e) {
+                window.location.href="/ScrapWeb/index.php";
+            },
+            success: function (data, status, xhr) {
+                console.log(data);
+                var value = data.output;
+                if (!value||value.length<1) {
+                    window.location.href = "nodata.html";
+                } else {
+                    var number = data.output.resultset.length;
+                    for (var i = 0; i < number; i++) {
+                        var trs = [];
+                        var ths = [];
+                        var tds = [];
+                        var trDom;
+                        var insuredtype = data.output.resultset[i].aae140;
+                        var insuredtime = data.output.resultset[i].yac033;
+                        var insuredstate = data.output.resultset[i].aac031;
+                        var insuredunits = data.output.resultset[i].aab004;
+                        var insuremonth = data.output.resultset[i].jfys;
+                        trDom = $('<tr></tr>');
+                        $('<th>' + '参保信息' + '</th>').appendTo(trDom);
+                        trs.push(trDom);
+                        trDom = $('<tr></tr>');
+                        $('<td>' + '险种类型:' + '<span class="right">' + insuredtype + '</span>' + '</td>').appendTo(trDom);
+                        trs.push(trDom);
+                        trDom = $('<tr></tr>');
+                        $('<td>' + '缴费期号:' + '<span class="right">' + insuredtime + '</span>' + '</td>').appendTo(trDom);
+                        trs.push(trDom);
+                        trDom = $('<tr></tr>');
+                        $('<td>' + '参保状态:' + '<span class="right">' + insuredstate + '</span>' + '</td>').appendTo(trDom);
+                        trs.push(trDom);
+                        trDom = $('<tr></tr>');
+                        $('<td>' + '参保单位:' + '<span class="right">' + insuredunits + '</span>' + '</td>').appendTo(trDom);
+                        trs.push(trDom);
+                        trDom = $('<tr></tr>');
+                        $('<td>' + '缴费月数:' + '<span class="right">' + insuremonth + '</span>' + '</td>').appendTo(trDom);
+                        trs.push(trDom);
+                        for (var j = 0; j < trs.length; j++) {
+                            $(trs[j]).appendTo($('#show' + i));
+                            $('#show' + i)[0].style.display = "table";
+                        }
+                    }
+                }
+            },
+            async: true
+        });
+    });
+
+</script>
+</html>

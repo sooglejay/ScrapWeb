@@ -1,0 +1,64 @@
+body{
+    background-color: #eee;
+}
+.title h2{
+    text-align:center;
+    margin:3rem 0 0 0;
+    font-size:3.5rem;
+    font-weight:700;
+    background-color: #4bd693;
+    height:6.5rem;
+    line-height: 6.5rem;
+    color:#fff;
+}
+
+#demo{
+    text-align:center;
+    margin:0rem 3% 0 0;
+}
+#demo ul li{
+    font-size:2.4rem;
+    width:100%;
+    height:7.5rem;
+    line-height:7.5rem;
+    list-style-type:none;
+    background-color:#ffffff;
+    border-bottom: 0.1rem solid lightgray;
+}
+
+.leftpng{
+    float:left;
+    margin:2.3rem;
+}
+.showleft{
+    float:left;
+}
+.showright{
+    float:right;
+    margin-right:3rem;
+}
+.rightpng{
+    float:right;
+    margin-top:3.3rem;
+    margin-right:1rem;
+    width:2.5rem;
+}
+.childinfol{
+    margin-left:4.5rem;
+}
+.childinfor{
+    float:right;
+    margin-right:3rem;
+}
+.childfirstr{
+    margin-right: 3rem;
+}
+#demo ul .odd{
+    background-color: #e4fdfd;
+}
+.demohead2{
+    display:none;
+}
+.more{
+    display:none;
+}

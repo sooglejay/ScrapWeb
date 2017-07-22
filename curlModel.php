@@ -53,67 +53,69 @@ class curlModel
 
     }
 
+    /**
+     * 获取aac001
+     * @return null
+     */
+    private function getAAC001(){
+        try {
+            if (is_null($this->aac001)) {
+                $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
+            }
+        } catch (Exception $e) {
+
+            $this->aac001 = null;
+        }
+        if (is_null($this->aac001)) {
+            return null;
+        }
+        return $this->aac001;
+    }
+
+    /**
+     * 用户基本信息查询
+     * @return mixed|null|string
+     */
     public function getUserBasicInfo()
     {
         // first login
         $this->doLogin();
-
-//1. 基本信息查询
-// 获取aac001 的值
-        try {
-            if (is_null($this->aac001)) {
-                $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
-            }
-        } catch (Exception $e) {
-
-            $this->aac001 = null;
-        }
-        if (is_null($this->aac001)) {
+        if(is_null($this->getAAC001())){
             return null;
         }
-// 然后就开始查询
         $startrow = 1;
         $endrow = 1;
         $number = "cdsi0000001";
-        $userInfo = json_decode(requests::get($this->queryUserInfo, array(
+        $userInfo =  requests::get($this->queryUserInfo, array(
             "aac001" => $this->aac001,
             "startrow" => $startrow,
             "endrow" => $endrow,
-            "number" => $number)), true);
+            "number" => $number));
         return $userInfo;
-
     }
 
+    /** 参保信息查询
+     * @return mixed|null|string
+     */
     public function getCanBaoInfo()
     {
         // first login
         $this->doLogin();
-
-//2. 参保信息查询
-// 获取aac001 的值
-        try {
-            if (is_null($this->aac001)) {
-                $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
-            }
-        } catch (Exception $e) {
-            $this->aac001 = null;
-        }
-        if (is_null($this->aac001)) {
+        if(is_null($this->getAAC001())){
             return null;
         }
-// 然后就开始查询
         $startrow = 1;
         $endrow = 6;
         $number = "cdsi0000006";
-
-        return json_decode(requests::get($this->queryUserInfo, array(
+        return requests::get($this->queryUserInfo, array(
             "aac001" => $this->aac001,
             "startrow" => $startrow,
             "endrow" => $endrow,
-            "number" => $number)),true);
+            "number" => $number));
     }
 
     /***
+     * 医保信息查询
      *  all、IncomeQuery、PayQuery are the same
      * @return mixed|string
      */
@@ -121,30 +123,178 @@ class curlModel
     {
         // first login
         $this->doLogin();
-
-//3. 医保信息查询
-// 获取aac001 的值
-        try {
-            if (is_null($this->aac001)) {
-                $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
-            }
-        } catch (Exception $e) {
-            $this->aac001 = null;
-        }
-        if (is_null($this->aac001)) {
+        if(is_null($this->getAAC001())){
             return null;
         }
-// 然后就开始查询
         $startrow = 1;
         $endrow = 10000;
         $number = "cdsi0003007";
-        $canBaoInfo = json_decode(requests::get($this->queryUserInfo, array(
+        $canBaoInfo = requests::get($this->queryUserInfo, array(
             "aac001" => $this->aac001,
             "startrow" => $startrow,
             "endrow" => $endrow,
-            "number" => $number)), true);
+            "number" => $number));
         return $canBaoInfo;
     }
+
+
+    /**
+     * 养老缴费账单查询
+     * @return mixed|null|string
+     */
+    public function getYangLaoInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 10000;
+        $number = "cdsi0001003";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 基本医疗缴费查询
+     * @return mixed|null|string
+     */
+    public function getBasicMedicalInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 10000;
+        $number = "cdsi0003002";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 生育保险缴费查询
+     * @return mixed|null|string
+     */
+    public function getMaternityInsInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 200;
+        $number = "cdsi0005002";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 工伤保险缴费查询
+     * @return mixed|null|string
+     */
+    public function getJobInjuryInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 10000;
+        $number = "cdsi0004002";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 失业保险缴费查询
+     * @return mixed|null|string
+     */
+    public function getLoseJobInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 10000;
+        $number = "cdsi0002002";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 城居医疗缴费查询
+     * @return mixed|null|string
+     */
+    public function getCityMedicalInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 200;
+        $number = "cdsi0003014";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 补充医疗缴费查询
+     * @return mixed|null|string
+     */
+    public function getSuperMedicalInfo()
+    {
+        // first login
+        $this->doLogin();
+        if(is_null($this->getAAC001())){
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 200;
+        $number = "cdsi0041002";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+
+
+
 }
 
 

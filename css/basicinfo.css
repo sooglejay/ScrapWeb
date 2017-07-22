@@ -1,0 +1,54 @@
+body{
+    background-color: #eee;
+}
+.title h2{
+    text-align:center;
+    margin:2rem auto;
+    font-size:3.5rem;
+    font-weight:700;
+    border-bottom:0.1rem dashed black;
+}
+.main table{
+    width:100%;
+    text-align:center;
+    margin:2.5rem auto;
+    border:0.1rem solid lightgray;
+    border-radius:0.5rem;
+    background-color: white;
+}
+.main{
+    text-align:center;
+    margin:3rem auto;
+}
+#nodata{
+    padding-top:5rem;
+}
+table tr{
+    width:100%;
+    height:8.1rem;
+    font-size:2.5rem;
+}
+table tr th{
+    background-color:#4bd693;
+    color:white;
+    font-size:2.5rem;
+    border:0.1rem solid #12a0ce;
+    text-align:center;
+}
+table tr td{
+    border-bottom:0.1rem solid lightgray;
+    text-align:left;
+    text-indent:3rem;
+}
+.right{
+    margin-left:9.8rem;
+}
+.lessright{
+    margin-left:4.78rem;
+}
+#nodata{
+    float:left;
+    margin:12rem 25%;
+    font-size:2rem;
+    color:gray;
+}

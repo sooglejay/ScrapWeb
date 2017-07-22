@@ -56,109 +56,31 @@ class App
 
         if (curlModel::getInstance()->doLogin()) {
             // login success
-            $indexHtml = file_get_contents("./web/index.html");
-            echo $indexHtml;
+            $htmlStr = file_get_contents("./web/index.html");
+            echo $htmlStr;
         } else {
             echo "Login Error!";
         }
     }
-
-    public function doBasicInfoQuery()
+    public function doBasicInfoQueryAction()
     {
-        $userInfo = curlModel::getInstance()->getUserBasicInfo()["output"]["resultset"][0];
-
-        $header = <<<ET
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="utf-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>Bootstrap 101 Template</title>
-                <link type="text/css" rel="stylesheet" href="/ScrapWeb/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-            </head>
-            <body>
-            
-            <div class="container">
-                <table class="table">
-                    <caption><span>个人基本信息</span></caption>
-ET;
-
-        $footer = <<<ET
-                </table>
-            </div>
-
-                <script type="text/javascript" src="/ScrapWeb/lib/jquery.min.js"></script>
-                <script type="text/javascript" src="/ScrapWeb/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-            </body>
-            </html>
-ET;
-        $response = "<tr><td>身份证号:</td><td>" . $userInfo['aac002'] . "</td></tr>" .
-            "<tr><td>姓名:</td><td> " . $userInfo['aac003'] . "</td></tr>" .
-            "<tr><td>性别:</td><td> " . $userInfo['aac004'] . "</td></tr>" .
-            "<tr><td>电话:</td><td> " . $userInfo['aae005'] . "</td></tr>" .
-            "<tr><td>出生时间:</td><td> " . $userInfo['aac006'] . "</td></tr>" .
-            "<tr><td>参工时间:</td><td> " . $userInfo['aac007'] . "</td></tr>" .
-            "<tr><td>住址:</td><td> " . $userInfo['aae006'] . "</td></tr>" .
-            "<tr><td>户名:</td><td> " . $userInfo['aae009'] . "</td></tr>" .
-            "<tr><td>银行类别:</td><td> " . $userInfo['aaf002'] . "</td></tr>" .
-            "<tr><td>银行卡号:</td><td> " . $userInfo['aae010'] . "</td></tr>" .
-            "<tr><td>邮编:</td><td> " . $userInfo['aae007'] . "</td></tr>";
-        $response = $header . $response . $footer;
-        echo $response;
+        $info = curlModel::getInstance()->getUserBasicInfo();
+        echo $info;
     }
-
-
-    public function doCanBaoInfoQuery()
+    public function doCanBaoInfoQueryAction()
     {
-        $canBaoInfo = curlModel::getInstance()->getCanBaoInfo()['output']['resultset'];
-        $header = <<<ET
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="utf-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>Bootstrap 101 Template</title>
-                <link type="text/css" rel="stylesheet" href="/ScrapWeb/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-            </head>
-            <body>
-            
-            <div class="container">
-                <table class="table">
-                    <caption><span>参保信息查询</span></caption>
-                    <tr>
-                        <th>险种类型</th>
-                        <th>缴费期号</th>
-                        <th>参保状态</th>
-                        <th>参保单位</th>
-                        <th>缴费月数</th>
-                    </tr>
-ET;
-
-        $footer = <<<ET
-                </table>
-            </div>
-
-                <script type="text/javascript" src="/ScrapWeb/lib/jquery.min.js"></script>
-                <script type="text/javascript" src="/ScrapWeb/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-            </body>
-            </html>
-ET;
-
-        $response = "";
-        foreach ($canBaoInfo as $item) {
-            $itemStr = "<tr>
-                         <td> " . $item['aae140'] . "</td>
-                         <td> " . $item['yac033'] . "</td>
-                         <td> " . $item['aac031'] . "</td>
-                         <td> " . $item['aab004'] . "</td>
-                         <td> " . $item['jfys'] . "</td>
-                     </tr>";
-            $response .= $itemStr;
-        }
-        $response = $header . $response . $footer;
-        echo $response;
+        $info = curlModel::getInstance()->getCanBaoInfo();
+        echo $info;
+    }
+   public function doYiBaoInfoQueryAction()
+    {
+        $info = curlModel::getInstance()->getYiBaoInfo();
+        echo  $info;
+    }
+   public function doYangLaoQueryAction()
+    {
+        $info = curlModel::getInstance()->getYangLaoInfo();
+        echo  $info;
     }
 
 

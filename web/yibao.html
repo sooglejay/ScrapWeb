@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乐山公共服务</title>
+    <link rel="stylesheet" href="/ScrapWeb/css/medicalpay.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<div class="title">
+    <h2>医保账户收支查询</h2>
+</div>
+<div class="queryBtn">
+		<span>
+			<input class="qbutton" onclick="IncomeQuery()" id="btnIncome" type="button" value="收入查询">
+			<input class="qbutton active" onclick="QueryAll()" id="btnQueryAll" type="button" value="查看全部">
+			<input class="qbutton" onclick="PayQuery()" id="btnPay" type="button" value="支出查询">
+		</span>
+</div>
+<div id="content">
+
+</div>
+<div>
+    <span id="nodata"></span>
+</div>
+<div id="tips"></div>
+</body>
+<script>
+    $(function () {
+        QueryAll();
+    });
+    function QueryAll() {
+        /*----------字段说明------------
+
+         aac001--个人编号
+         startrow--开始行 endrow--结束行
+         number--交易编号
+         if中的number表示数据条数
+         ----------------------------------*/
+        $("#btnQueryAll").addClass("active");
+        $("#btnIncome").removeClass("active");
+        $("#btnPay").removeClass("active");
+        $("#content").text("");
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doYiBaoInfoQueryAction',
+            dataType: "json",
+
+            error: function (e) {
+                window.location.href="/ScrapWeb/index.php";
+            },
+            success: function (data, status, xhr) {
+                var value = data.output;
+                if (!value || value.length < 1) {
+                    window.location.href = "nodata.html";
+                } else {
+                    var val = data.output.resultset;
+                    var number = val.length;
+                    for (var i = 0; i < number; i++) {
+                        var trs = [];
+                        var ths = [];
+                        var tbs = [];
+                        var trDom;
+                        var tableDom = $('<table class="table" id="show' + i + '"></table>')
+                        tableDom.appendTo($('#content'));
+                        var aka130 = val[i].aka130;
+                        var akb021 = val[i].akb021;
+                        var aae036 = val[i].aae036;
+                        var yke132 = val[i].yke132;
+                        var yke134 = val[i].yke134;
+                        var aae240 = val[i].aae240;
+                        var aaa097 = val[i].aaa097;
+
+
+                        var insuredtime = val[i].aae036;
+                        if (yke134 != 0) {
+                            var length = akb021.length;
+                            trDom = $('<tr></tr>');
+                            $('<th class="pay">' + aka130 + '</th>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '支出时间:' + '</span><span class="right">' + aae036 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            if (length > 17) {
+                                akb020 = akb021.substring(0, 15) + "..."
+                                trDom = $('<tr></tr>');
+                                $('<td class="even"><span class="left">' + '医院名称:' + '</span><span id="showinfo' + i + '" onclick="showmore(this.id)" class="right">' + akb020 + '</span>' + '</td>').appendTo(trDom);
+                                trs.push(trDom);
+                                trDom = $('<tr></tr>');
+                                $('<td id="info' + i + '" style="display:none;background-color:#d4ffe0;"><span class="right">' + akb021 + '</span>' + '</td>').appendTo(trDom);
+                                trs.push(trDom);
+                            } else {
+                                trDom = $('<tr></tr>');
+                                $('<td class="even"><span class="left">' + '医院名称:' + '</span><span class="right">' + akb021 + '</span>' + '</td>').appendTo(trDom);
+                                trs.push(trDom);
+                            }
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '支出类型:' + '</span><span class="right">' + aaa097 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td class="even"><span class="left">' + '支出金额:' + '</span><span class="right">' + yke134 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '余额:' + '</span><span class="right">' + aae240 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                        } else if (yke132 != 0) {
+                            trDom = $('<tr></tr>');
+                            $('<th class="income">' + aaa097 + '</th>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '收入时间:' + '</span><span class="right">' + aae036 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td class="incometd even"><span class="left">' + '收入金额:' + '</span><span class="right">' + yke132 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '余额:' + '</span><span class="right">' + aae240 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                        }
+                        for (var j = 0; j < trs.length; j++) {
+                            $(trs[j]).appendTo($('#show' + i));
+                            // $('#show'+i)[0].style.display="table";
+                        }
+
+                    }
+                }
+            },
+            async: true
+        });
+
+    }
+    function IncomeQuery() {
+        $("#btnIncome").addClass("active");
+        $("#btnQueryAll").removeClass("active");
+        $("#btnPay").removeClass("active");
+        $("#content").text("");
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doYiBaoInfoQueryAction',
+            dataType: "json",
+
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (data, status, xhr) {
+                var value = data.output;
+                if (!value || value.length < 1) {
+                    window.location.href = "nodata.html";
+                } else {
+                    var val = data.output.resultset;
+                    var number = val.length;
+                    for (var i = 0; i < number; i++) {
+                        var trs = [];
+                        var ths = [];
+                        var tbs = [];
+                        var trDom;
+                        var aka130 = val[i].aka130;
+                        var akb021 = val[i].akb021;
+                        var aae036 = val[i].aae036;
+                        var yke132 = val[i].yke132;
+                        var yke134 = val[i].yke134;
+                        var aae240 = val[i].aae240;
+                        var aaa097 = val[i].aaa097;
+                        var insuredtime = val[i].aae036;
+                        if (yke132 != 0) {
+                            var tableDom = $('<table class="table" id="show' + i + '"></table>')
+                            tableDom.appendTo($('#content'));
+                            trDom = $('<tr></tr>');
+                            $('<th class="income">' + aaa097 + '</th>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '收入时间:' + '</span><span class="right">' + aae036 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td class="incometd even"><span class="left">' + '收入金额:' + '</span><span class="right">' + yke132 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '余额:' + '</span><span class="right">' + aae240 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            for (var j = 0; j < trs.length; j++) {
+                                $(trs[j]).appendTo($('#show' + i));
+                            }
+                        }
+
+                    }
+                }
+            },
+            async: true
+        });
+
+    }
+    function PayQuery() {
+
+        $("#btnPay").addClass("active");
+        $("#btnIncome").removeClass("active");
+        $("#btnQueryAll").removeClass("active");
+        $("#content").text("");
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doYiBaoInfoQueryAction',
+            dataType: "json",
+
+            error: function () {
+            },
+            success: function (data, status, xhr) {
+                var value = data.output;
+                if (!value || value.length < 1) {
+                    window.location.href = "nodata.html";
+                } else {
+                    var val = data.output.resultset;
+                    var number = val.length;
+                    for (var i = 0; i < number; i++) {
+                        var trs = [];
+                        var ths = [];
+                        var tbs = [];
+                        var trDom;
+                        var aka130 = val[i].aka130;
+                        var akb021 = val[i].akb021;
+                        var aae036 = val[i].aae036;
+                        var yke132 = val[i].yke132;
+                        var yke134 = val[i].yke134;
+                        var aae240 = val[i].aae240;
+                        var aaa097 = val[i].aaa097;
+                        var insuredtime = val[i].aae036;
+                        if (yke134 != 0) {
+                            var tableDom = $('<table class="table" id="show' + i + '"></table>')
+                            tableDom.appendTo($('#content'));
+                            var length = akb021.length;
+                            trDom = $('<tr></tr>');
+                            $('<th class="pay">' + aka130 + '</th>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '支出时间:' + '</span><span class="right">' + aae036 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            if (length > 17) {
+                                akb020 = akb021.substring(0, 15) + "..."
+                                trDom = $('<tr></tr>');
+                                $('<td class="even"><span class="left">' + '医院名称:' + '</span><span id="showinfo' + i + '" onclick="showmore(this.id)" class="right">' + akb020 + '</span>' + '</td>').appendTo(trDom);
+                                trs.push(trDom);
+                                trDom = $('<tr></tr>');
+                                $('<td id="info' + i + '" style="display:none;background-color:#d4ffe0;"><span class="right">' + akb021 + '</span>' + '</td>').appendTo(trDom);
+                                trs.push(trDom);
+                            } else {
+                                trDom = $('<tr></tr>');
+                                $('<td class="even"><span class="left">' + '医院名称:' + '</span><span class="right">' + akb021 + '</span>' + '</td>').appendTo(trDom);
+                                trs.push(trDom);
+                            }
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '支出类型:' + '</span><span class="right">' + aaa097 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td class="even"><span class="left">' + '支出金额:' + '</span><span class="right">' + yke134 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            trDom = $('<tr></tr>');
+                            $('<td><span class="left">' + '余额:' + '</span><span class="right">' + aae240 + '</span>' + '</td>').appendTo(trDom);
+                            trs.push(trDom);
+                            for (var j = 0; j < trs.length; j++) {
+                                $(trs[j]).appendTo($('#show' + i));
+                            }
+                        }
+
+                    }
+                }
+            },
+            async: true
+        });
+
+    }
+    function showmore(id) {
+        var len = id.length;
+        var n = id.substring(8, len);
+        $("#info" + n).toggle();
+    }
+</script>
+</html>
