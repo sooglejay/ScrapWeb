@@ -2,20 +2,35 @@
 ini_set("memory_limit", "1024M");
 require dirname(__FILE__) . '/../phpspider/core/init.php';
 
-class WebCurlModel
+class curlModel
 {
+    /**
+     * 静态成品变量 保存全局实例
+     */
+    private static  $_instance = NULL;
+
+    /**
+     * 私有化默认构造方法，保证外界无法直接实例化
+     */
+    private function __construct() {
+    }
+
+    /**
+     * 静态工厂方法，返还此类的唯一实例
+     */
+    public static function getInstance() {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new curlModel();
+        }
+        return self::$_instance;
+    }
+
 
     private $getAAC = "http://www.63si.com.cn:8000/lsapp_server/front/wxlogin/getAAC001";
     private $queryUserInfo = "http://www.63si.com.cn:8000/lsapp_server/front/wxquery/lssi";
     private $aac001 = null;
     private $loginUrl = "http://www.63si.com.cn:8000/lsapp_server/front/wxlogin/login";
 
-    /**
-     * CurlHandler constructor.
-     */
-    public function __construct()
-    {
-    }
 
     public function doLogin($userName = "18784502251", $password = "1")
     {
@@ -27,6 +42,9 @@ class WebCurlModel
             "password" => $password
         );
         requests::post($this->loginUrl, $params);
+
+        // 此处要返回一个标志 告诉用户已经登录成功，可以去get一个网页，查看能否get到
+
     }
 
     public function getUserBasicInfo()
