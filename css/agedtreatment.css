@@ -1,0 +1,149 @@
+body{
+    background-color: #eee;
+}
+.title h2{
+    text-align:center;
+    margin:3rem 3% 2rem 3%;
+    font-size:4rem;
+    font-weight:700;
+    background-color: #4bd693;
+    height:9rem;
+    line-height: 9rem;
+    color:#fff;
+}
+.content{
+    text-align:center;
+    margin:2rem auto;
+}
+.content span input{
+    height:7rem;
+    width:42%;
+    line-height:7rem;
+    font-size:3rem;
+    background-color:#4bd693;
+    color:white;
+    font-weight:600;
+}
+.querybutton{
+    height:3rem;
+    width:32rem;
+    margin:2rem 0 2rem 0;
+    border-radius:0.5rem;
+    color:white;
+    background-color:green;
+}
+#incomequery{
+    margin-right:3%;
+}
+#outlayquery{
+    margin-left:3%;
+}
+
+
+#person{
+    width:94%;
+    text-align:center;
+    margin:3rem auto;
+    border:0.1rem solid lightgray;
+    border-radius:0.5rem;
+    background-color: white;
+    display:none;
+}
+#person tr th{
+    height:7rem;
+    background-color:#4bd693;
+    color:white;
+    font-size:2.6rem;
+    border:0.1rem solid #4bd693;
+    text-align:center;
+}
+#person tr td{
+    height:5rem;
+    border-bottom:0.1rem solid lightgray;
+    text-align:left;
+    text-indent:3rem;
+    font-size:2.4rem;
+}
+#person .right{
+    margin-left:5rem;
+}
+#person .moreright{
+    margin-left:9.72rem;
+}
+#grant{
+    text-align:center;
+    margin:-1rem auto;
+    width:94%;
+    border:0.1rem solid lightgray;
+    font-size:2rem;
+    display:none;
+}
+#grant th{
+    background-color:#4bd693;
+    height:7rem;
+}
+#grant td{
+    height:6rem;
+}
+
+#tips{
+    float:left;
+    text-align:center;
+    margin:0rem 31%;
+    font-size:2.6rem;
+    color:lightgreen;
+}
+
+.odd{
+    background-color: #e4fdfd;
+}
+.even{
+    background-color: #fff;
+}
+
+
+/*涓嬫媺璁剧疆閮ㄥ垎*/
+#demo{
+    text-align:center;
+    margin:0rem 3% 0 0;
+}
+#demo ul li{
+    font-size:2.4rem;
+    width:100%;
+    height:7.5rem;
+    line-height:7.5rem;
+    list-style-type:none;
+    background-color:#ffffff;
+    border-bottom: 0.1rem solid lightgray;
+}
+.leftpng{
+    float:left;
+    margin:2.3rem;
+}
+.showleft{
+    float:left;
+}
+.rightpng{
+    float:right;
+    margin:3.3rem;
+    width:2.5rem;
+}
+.childinfol{
+    margin-left:4.5rem;
+}
+.childinfor{
+    float:right;
+    margin-right:3rem;
+}
+.childfirstr{
+    margin-right:-6rem;
+}
+#demo ul .odd{
+    background-color: #e4fdfd;
+}
+.demohead2{
+    display:none;
+}
+.more{
+    display:none;
+}

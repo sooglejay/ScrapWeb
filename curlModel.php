@@ -57,7 +57,8 @@ class curlModel
      * 获取aac001
      * @return null
      */
-    private function getAAC001(){
+    private function getAAC001()
+    {
         try {
             if (is_null($this->aac001)) {
                 $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
@@ -80,13 +81,13 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
         $endrow = 1;
         $number = "cdsi0000001";
-        $userInfo =  requests::get($this->queryUserInfo, array(
+        $userInfo = requests::get($this->queryUserInfo, array(
             "aac001" => $this->aac001,
             "startrow" => $startrow,
             "endrow" => $endrow,
@@ -101,7 +102,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -123,7 +124,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -146,7 +147,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -168,7 +169,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -190,7 +191,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -212,7 +213,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -234,7 +235,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -256,7 +257,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -278,7 +279,7 @@ class curlModel
     {
         // first login
         $this->doLogin();
-        if(is_null($this->getAAC001())){
+        if (is_null($this->getAAC001())) {
             return null;
         }
         $startrow = 1;
@@ -292,7 +293,115 @@ class curlModel
         return $info;
     }
 
+    /*******************
+     * *****************   待遇信息查询
+     * *****************/
 
+    /**
+     * 基本医疗待遇信息查询
+     * @return mixed|null|string
+     */
+    public function getBasicMedicalTreatmentInfo()
+    {
+        // first login
+        $this->doLogin();
+        if (is_null($this->getAAC001())) {
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 100;
+        $number = "cdsi0003019";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+
+    /**
+     * 养老待遇信息查询
+     * @param $grantInfo 1=>发放信息 0=>养老信息
+     * @return mixed|null|string
+     */
+    public function getYangLaoTreatmentInfo($grantInfo)
+    {
+        // first login
+        $this->doLogin();
+        if (is_null($this->getAAC001())) {
+            return null;
+        }
+        if ($grantInfo) {
+            $startrow = 1;
+            $endrow = 10000;
+            $number = "cdsi0001018";
+            $info = requests::get($this->queryUserInfo, array(
+                "aac001" => $this->aac001,
+                "startrow" => $startrow,
+                "endrow" => $endrow,
+                "number" => $number));
+            return $info;
+        } else {
+            $startrow = 1;
+            $endrow = 10000;
+            $aae140 = 110;
+            $number = "cdsi0001019";
+            $info = requests::get($this->queryUserInfo, array(
+                "aac001" => $this->aac001,
+                "startrow" => $startrow,
+                "aae140" => $aae140,
+                "endrow" => $endrow,
+                "number" => $number));
+            return $info;
+        }
+
+    }
+
+
+    /**
+     * 生育待遇信息
+     * @return mixed|null|string
+     */
+    public function getMaternityTreatmentInfo()
+    {
+        // first login
+        $this->doLogin();
+        if (is_null($this->getAAC001())) {
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 100;
+        $number = "cdsi0005006";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
+
+    /**
+     * 工伤待遇信息
+     * @return mixed|null|string
+     */
+    public function getJobInjuryTreatmentInfo()
+    {
+        // first login
+        $this->doLogin();
+        if (is_null($this->getAAC001())) {
+            return null;
+        }
+        $startrow = 1;
+        $endrow = 10000;
+        $number = "cdsi0004004";
+        $info = requests::get($this->queryUserInfo, array(
+            "aac001" => $this->aac001,
+            "startrow" => $startrow,
+            "endrow" => $endrow,
+            "number" => $number));
+        return $info;
+    }
 
 
 }

@@ -30,91 +30,66 @@
 </div>
 </body>
 <script>
-    $(function(){
-        /*----------字段说明------------
+    $(function () {
 
-         aac001--个人编号
-         startrow--开始行 endrow--结束行
-         number--交易编号
-         if中的number表示数据条数
-         ----------------------------------*/
-        var aac001url = "../front/wxlogin/getAAC001";
-        var queryurl = "../front/wxquery/lssi";
-        var aac001 = "";
         $.ajax({
-            type : "post",
-            url : aac001url,
-            dataType:"json",
-            error : function() {
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doMaternityInsInfoAction',
+            dataType: "json",
+
+            error: function () {
             },
-            success : function(data, status, xhr) {
-                aac001 = data.aac001;
-                if(aac001 == undefined||aac001 == ""){
-                    window.location.href="relogin.html";
-                }else{
-                    var number = "cdsi0005002";
-                    $.ajax({
-                        type : "post",
-                        url : queryurl,
-                        dataType:"json",
-                        data : {"aac001":aac001,"startrow":1,"endrow":200,"number":number},
-                        error : function() {
-                        },
-                        success : function(data, status, xhr) {
-                            console.log(data);
-                            var value = data.output;
-                            if(value!=""){
-                                var datalist = data.output.resultset;
-                                var number = data.output.resultset.length;
-                                var trs=[];
-                                var ths=[];
-                                var tds =[];
-                                var trDom;
+            success: function (data, status, xhr) {
+                console.log(data);
+                var value = data.output;
+                if (value != "") {
+                    var datalist = data.output.resultset;
+                    var number = data.output.resultset.length;
+                    var trs = [];
+                    var ths = [];
+                    var tds = [];
+                    var trDom;
 
-                                for(var i=0;i<number;i++){
-                                    trDom = $('<ul></ul>');
-                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
-                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo1 odd">'+'<span class="showleft childinfol">'+'参保形式'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].yac038+'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo2">'+'<span class="showleft childinfol">'+'缴费类型'+'</span>'+'<span class="showright childinfor">'+datalist[i].aaa115+'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo3 odd">'+'<span class="showleft childinfol">'+'缴费基数'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].amc001+'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo4">'+'<span class="showleft childinfol">'+'单位缴费'+'</span>'+'<span class="showright childinfor">'+datalist[i].ymc237 +'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo5 odd">'+'<span class="showleft childinfol">'+'个人缴费'+'</span>'+'<span class="showright childinfor">'+datalist[i].ymc244+'</span>'+'</li>').appendTo(trDom);
-                                    trs.push(trDom);
-                                }
-                                for(var j=0;j<trs.length;j++){
-                                    $(trs[j]).appendTo($('#demo'));
-                                }
-                            }else{
-                                window.location.href="paynodata.html";
-                            }
-
-                        },
-                        async : true
-                    });
+                    for (var i = 0; i < number; i++) {
+                        trDom = $('<ul></ul>');
+                        $('<li class="demohead1">' + '<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/><span class="showleft">' + datalist[i].aae002 + '</span>' + '<span class="showright">' + datalist[i].aae078 + '</span>' + '<img onclick="change(this.id)" id="down' + i + '" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png"/></li>').appendTo(trDom);
+                        $('<li class="demohead2">' + '<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/><span class="showleft">' + datalist[i].aae002 + '</span>' + '<span class="showright">' + datalist[i].aae078 + '</span>' + '<img onclick="hide(this.id)" id="upup' + i + '" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png"/></li>').appendTo(trDom);
+                        $('<li class="more moreinfo1 odd">' + '<span class="showleft childinfol">' + '参保形式' + '</span>' + '<span class="showright childinfor childfirstr">' + datalist[i].yac038 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo2">' + '<span class="showleft childinfol">' + '缴费类型' + '</span>' + '<span class="showright childinfor">' + datalist[i].aaa115 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo3 odd">' + '<span class="showleft childinfol">' + '缴费基数' + '</span>' + '<span class="showright childinfor childfirstr">' + datalist[i].amc001 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo4">' + '<span class="showleft childinfol">' + '单位缴费' + '</span>' + '<span class="showright childinfor">' + datalist[i].ymc237 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo5 odd">' + '<span class="showleft childinfol">' + '个人缴费' + '</span>' + '<span class="showright childinfor">' + datalist[i].ymc244 + '</span>' + '</li>').appendTo(trDom);
+                        trs.push(trDom);
+                    }
+                    for (var j = 0; j < trs.length; j++) {
+                        $(trs[j]).appendTo($('#demo'));
+                    }
+                } else {
+                    window.location.href = "paynodata.html";
                 }
+
             },
-            async : true
+            async: true
         });
-    })
-    function change(id){
+    });
+    function change(id) {
         var len = id.length;
-        var n = id.substring(4,len);
-        $(".demohead1")[n].style.display="none";
-        $(".demohead2")[n].style.display="block";
+        var n = id.substring(4, len);
+        $(".demohead1")[n].style.display = "none";
+        $(".demohead2")[n].style.display = "block";
         var max = 5;
-        for(var i=1;i<=max;i++){
-            $(".moreinfo"+i)[n].style.display="block";
+        for (var i = 1; i <= max; i++) {
+            $(".moreinfo" + i)[n].style.display = "block";
         }
     }
-    function hide(id){
+    function hide(id) {
         var len = id.length;
-        var n = id.substring(4,len);
-        $(".demohead1")[n].style.display="block";
-        $(".demohead2")[n].style.display="none";
+        var n = id.substring(4, len);
+        $(".demohead1")[n].style.display = "block";
+        $(".demohead2")[n].style.display = "none";
         var max = 5;
-        for(var i=1;i<=max;i++){
-            $(".moreinfo"+i)[n].style.display="none";
+        for (var i = 1; i <= max; i++) {
+            $(".moreinfo" + i)[n].style.display = "none";
         }
     }
 </script>

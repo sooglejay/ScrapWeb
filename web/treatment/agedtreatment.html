@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乐山公共服务</title>
+    <link rel="stylesheet" href="/ScrapWeb/css/agedtreatment.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript"
+            language="javascript"></script>
+</head>
+<body>
+<div class="title">
+    <h2>养老待遇信息</h2>
+</div>
+<div class="content">
+    <span><input id="personinfo" onclick="personinfo()" type="button" value="养老信息"></span>
+    <span><input onclick="grantinfo()" type="button" value="发放信息"></span></br>
+
+</div>
+<table border="1" cellspacing="0" id="person">
+
+</table>
+<table border="1" style="margin-top:3rem;" cellspacing="0" id="grant">
+
+</table>
+<div id="demo">
+    <ul>
+
+
+    </ul>
+</div>
+<div>
+    <ul>
+
+    </ul>
+</div>
+<div style="margin-top:14%;" id="tips"></div>
+</body>
+<script>
+    $(function () {
+        $("#tips").text("请选择需要查询的收入或支出信息");
+    });
+    function personinfo() {
+        $("#grant").text("");
+        $("#person").text("");
+        $("#tips").text("");
+        $("#demo").text("");
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doBasicMedicalTreatmentInfoAction',
+            dataType: "json",
+            error: function () {
+            },
+            success: function (data, status, xhr) {
+                var value = data.output;
+                if (value != "") {
+                    var trs = [];
+                    var ths = [];
+                    var tds = [];
+                    var trDom;
+                    var aae116 = data.output.resultset[0].aae116;
+                    var dyje = data.output.resultset[0].dyje;
+                    var aic161 = data.output.resultset[0].aic161;
+                    var yac004 = data.output.resultset[0].yac004;
+                    var aae145 = data.output.resultset[0].aae145;
+                    var aaf002 = data.output.resultset[0].aaf002;
+                    var aae008 = data.output.resultset[0].aae008;
+                    var aae009 = data.output.resultset[0].aae009;
+                    var aae010 = data.output.resultset[0].aae010;
+                    trDom = $('<tr></tr>');
+                    $('<th>' + '养老待遇个人信息' + '</th>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '发放状态:' + '<span class="right">' + aae116 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '待遇金额:' + '<span class="right">' + dyje + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '退休类别:' + '<span class="right">' + aic161 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '退休时间:' + '<span class="right">' + yac004 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '发放方式:' + '<span class="right">' + aae145 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '银行类别:' + '<span class="right">' + aaf002 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '银行名称:' + '<span class="right">' + aae008 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '户名:' + '<span class="moreright">' + aae009 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+                    $('<td>' + '银行账号:' + '<span class="right">' + aae010 + '</span>' + '</td>').appendTo(trDom);
+                    trs.push(trDom);
+                    trDom = $('<tr></tr>');
+
+                    for (var j = 0; j < trs.length; j++) {
+                        $(trs[j]).appendTo($('#person'));
+                    }
+                    $("#person")[0].style.display = "table";
+                } else {
+                    window.location.href = "treatnodata.html";
+                }
+            },
+            async: true
+        });
+    }
+    function grantinfo() {
+
+        $("#person").text("");
+        $("#grant").text("");
+        $("#tips").text("");
+        $("#person")[0].style.display = "none";
+        $(".more").hide();
+
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doYangLaoTreatmentInfoAction&grantInfo=1',
+            dataType: "json",
+            error: function () {
+            },
+            success: function (data, status, xhr) {
+                console.log(data);
+                var value = data.output;
+                if (value != "") {
+                    var datalist = data.output.resultset;
+                    var number = data.output.resultset.length;
+                    var trs = [];
+                    var ths = [];
+                    var tds = [];
+                    var trDom;
+                    for (var i = 0; i < number; i++) {
+                        var bankNo = datalist[i].aae010;
+                        var len = bankNo.length;
+                        var banknum = bankNo.substring(0, 6) + "********" + bankNo.substring(len - 4, len);
+                        trDom = $('<ul></ul>');
+                        $('<li class="demohead1">' + '<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/><span class="showleft">' + datalist[i].aae003 + '</span>' + '<img onclick="change(this.id)" id="down' + i + '" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png"/></li>').appendTo(trDom);
+                        $('<li class="demohead2">' + '<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/><span class="showleft">' + datalist[i].aae003 + '</span>' + '<img onclick="hide(this.id)" id="upup' + i + '" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png"/></li>').appendTo(trDom);
+                        $('<li class="more moreinfo1 odd">' + '<span class="showleft childinfol">' + '发放状态' + '</span>' + '<span class="showright childinfor childfirstr">' + datalist[i].aae117 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo2">' + '<span class="showleft childinfol">' + '发放金额' + '</span>' + '<span class="showright childinfor">' + datalist[i].aic142 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo3 odd">' + '<span class="showleft childinfol">' + '待遇类型' + '</span>' + '<span class="showright childinfor">' + datalist[i].aae145 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo4">' + '<span class="showleft childinfol">' + '银行类别' + '</span>' + '<span class="showright childinfor">' + datalist[i].aaf002 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo5 odd">' + '<span class="showleft childinfol">' + '银行账号' + '</span>' + '<span class="showright childinfor">' + banknum + '</span>' + '</li>').appendTo(trDom);
+
+
+                        trs.push(trDom);
+                    }
+                    for (var j = 0; j < trs.length; j++) {
+                        $(trs[j]).appendTo($('#demo'));
+                    }
+                    /* $("#grant")[0].style.display="table"; */
+                    $("#demo")[0].style.display = "block";
+                } else {
+                    window.location.href = "treatnodata.html";
+                }
+            },
+            async: true
+
+        });
+    }
+    //发放金额 待遇类型  银行类别 银行账号
+    function change(id) {
+        var len = id.length;
+        var n = id.substring(4, len);
+        $(".demohead1")[n].style.display = "none";
+        $(".demohead2")[n].style.display = "block";
+        $(".moreinfo1")[n].style.display = "block";
+        $(".moreinfo2")[n].style.display = "block";
+        $(".moreinfo3")[n].style.display = "block";
+        $(".moreinfo4")[n].style.display = "block";
+        $(".moreinfo5")[n].style.display = "block";
+    }
+    function hide(id) {
+        var len = id.length;
+        var n = id.substring(4, len);
+        $(".demohead1")[n].style.display = "block";
+        $(".demohead2")[n].style.display = "none";
+        $(".moreinfo1")[n].style.display = "none";
+        $(".moreinfo2")[n].style.display = "none";
+        $(".moreinfo3")[n].style.display = "none";
+        $(".moreinfo4")[n].style.display = "none";
+        $(".moreinfo5")[n].style.display = "none";
+    }
+
+</script>
+</html>

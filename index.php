@@ -62,25 +62,76 @@ class App
             echo "Login Error!";
         }
     }
+
     public function doBasicInfoQueryAction()
     {
-        $info = curlModel::getInstance()->getUserBasicInfo();
-        echo $info;
+        echo curlModel::getInstance()->getUserBasicInfo();
+
     }
+
     public function doCanBaoInfoQueryAction()
     {
-        $info = curlModel::getInstance()->getCanBaoInfo();
-        echo $info;
+        echo curlModel::getInstance()->getCanBaoInfo();
     }
-   public function doYiBaoInfoQueryAction()
+
+    public function doYiBaoInfoQueryAction()
     {
-        $info = curlModel::getInstance()->getYiBaoInfo();
-        echo  $info;
+        echo curlModel::getInstance()->getYiBaoInfo();
     }
-   public function doYangLaoQueryAction()
+
+    public function doYangLaoQueryAction()
     {
-        $info = curlModel::getInstance()->getYangLaoInfo();
-        echo  $info;
+        echo curlModel::getInstance()->getYangLaoInfo();
+    }
+
+    public function doBasicMedicalInfoAction()
+    {
+        echo curlModel::getInstance()->getBasicMedicalInfo();
+    }
+
+    public function doMaternityInsInfoAction()
+    {
+        echo curlModel::getInstance()->getMaternityInsInfo();
+    }
+
+    public function doJobInjuryInfoAction()
+    {
+        echo curlModel::getInstance()->getJobInjuryInfo();
+    }
+
+    public function doLoseJobInfoAction()
+    {
+        echo curlModel::getInstance()->getLoseJobInfo();
+    }
+
+    public function doCityMedicalInfoAction()
+    {
+        echo curlModel::getInstance()->getCityMedicalInfo();
+    }
+
+    public function doSuperMedicalInfoAction()
+    {
+        echo curlModel::getInstance()->getSuperMedicalInfo();
+    }
+
+    public function doYangLaoTreatmentInfoAction()
+    {
+        $grantInfo = isset($_REQUEST['grantInfo']);
+        echo curlModel::getInstance()->getYangLaoTreatmentInfo($grantInfo);
+    }
+
+    public function doBasicMedicalTreatmentInfoAction()
+    {
+        echo curlModel::getInstance()->getBasicMedicalTreatmentInfo();
+    }
+
+    public function doMaternityTreatmentInfoAction()
+    {
+        echo curlModel::getInstance()->getMaternityTreatmentInfo();
+    }
+    public function doJobInjuryTreatmentInfoAction()
+    {
+        echo curlModel::getInstance()->getJobInjuryTreatmentInfo();
     }
 
 

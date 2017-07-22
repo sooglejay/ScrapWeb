@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乐山公共服务</title>
+    <link rel="stylesheet" href="/ScrapWeb/css/downup.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<div class="title">
+    <h2>生育待遇信息</h2>
+</div>
+<div id="demo">
+    <ul>
+
+    </ul>
+</div>
+<div class="content">
+    <table border="1" cellspacing="0" id="show">
+
+    </table>
+    <span id="nodata"></span>
+</div>
+</body>
+<script>
+    $(function () {
+
+
+        $.ajax({
+            type: "post",
+            url: '/ScrapWeb/index.php?action=doMaternityTreatmentInfoAction',
+            dataType: "json",
+            error: function () {
+            },
+            success: function (data, status, xhr) {
+                var value = data.output;
+                if (value != "") {
+                    var datalist = data.output.resultset;
+                    var number = data.output.resultset.length;
+                    var trs = [];
+                    var ths = [];
+                    var tds = [];
+                    var trDom;
+                    /*
+                     trDom = $('<tr class="even"></tr>');
+                     $('<th>'+'待遇发放期号'+'</th>').appendTo(trDom);
+                     $('<th>'+'发放方式'+'</th>').appendTo(trDom);
+                     $('<th>'+'发放金额'+'</th>').appendTo(trDom);
+                     $('<th>'+'发放状态'+'</th>').appendTo(trDom);
+                     trs.push(trDom); */
+                    for (var i = 0; i < number; i++) {
+                        trDom = $('<ul></ul>');
+                        $('<li class="demohead1">' + '<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/><span class="showleft">' + datalist[i].aae003 + '</span>' + '<img onclick="change(this.id)" id="down' + i + '" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png"/></li>').appendTo(trDom);
+                        $('<li class="demohead2">' + '<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/><span class="showleft">' + datalist[i].aae003 + '</span>' + '<img onclick="hide(this.id)" id="upup' + i + '" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png"/></li>').appendTo(trDom);
+                        $('<li class="more moreinfo1 odd">' + '<span class="showleft childinfol">' + '发放方式' + '</span>' + '<span class="showright childinfor childfirstr">' + datalist[i].aae145 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo2">' + '<span class="showleft childinfol">' + '发放金额' + '</span>' + '<span class="showright childinfor">' + datalist[i].amc050 + '</span>' + '</li>').appendTo(trDom);
+                        $('<li class="more moreinfo3 odd">' + '<span class="showleft childinfol">' + '发放状态' + '</span>' + '<span class="showright childinfor">' + datalist[i].aae117 + '</span>' + '</li>').appendTo(trDom);
+                        trs.push(trDom);
+                        /* var No = i+1;
+                         if(No%2==1){
+                         trDom = $('<tr class="odd"></tr>');
+                         }else{
+                         trDom = $('<tr class="even"></tr>');
+                         }
+                         $('<td>'+datalist[i].aae003+'</td>').appendTo(trDom);
+                         $('<td>'+datalist[i].aae145+'</td>').appendTo(trDom);
+                         $('<td>'+datalist[i].amc050+'</td>').appendTo(trDom);
+                         $('<td>'+datalist[i].aae117+'</td>').appendTo(trDom);
+                         trs.push(trDom);   */
+                    }
+                    for (var j = 0; j < trs.length; j++) {
+                        $(trs[j]).appendTo($('#demo'));
+                    }
+                } else {
+                    window.location.href = "treatnodata.html";
+                }
+            },
+            async: true
+        });
+    });
+    function change(id) {
+        var len = id.length;
+        var n = id.substring(4, len);
+        $(".demohead1")[n].style.display = "none";
+        $(".demohead2")[n].style.display = "block";
+        var max = 3;
+        for (var i = 1; i <= max; i++) {
+            $(".moreinfo" + i)[n].style.display = "block";
+        }
+    }
+    function hide(id) {
+        var len = id.length;
+        var n = id.substring(4, len);
+        $(".demohead1")[n].style.display = "block";
+        $(".demohead2")[n].style.display = "none";
+        var max = 3;
+        for (var i = 1; i <= max; i++) {
+            $(".moreinfo" + i)[n].style.display = "none";
+        }
+    }
+</script>
+</html>
