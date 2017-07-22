@@ -57,15 +57,12 @@ class curlModel
                 $this->aac001 = json_decode(requests::get($this->getAAC), true)["aac001"];
             }
         } catch (Exception $e) {
+
             $this->aac001 = null;
         }
         if (is_null($this->aac001)) {
-            echo "ERROR";
-            return "Not Login!";
-        } else {
-            echo $this->aac001;
+           return null;
         }
-        echo "\n";
 // 然后就开始查询
         $startrow = 1;
         $endrow = 1;
@@ -75,12 +72,11 @@ class curlModel
             "startrow" => $startrow,
             "endrow" => $endrow,
             "number" => $number)), true);
-        print_r($userInfo);
         return $userInfo;
 
     }
 
-    public function getCanBaoInfo()
+    public  function getCanBaoInfo()
     {
 
 //2. 参保信息查询
@@ -93,23 +89,18 @@ class curlModel
             $this->aac001 = null;
         }
         if (is_null($this->aac001)) {
-            echo "ERROR";
-            return "Not Login!";
-        } else {
-            echo $this->aac001;
+            return null;
         }
-        echo "\n";
 // 然后就开始查询
         $startrow = 1;
         $endrow = 6;
         $number = "cdsi0000006";
-        $canBaoInfo = json_decode(requests::get($this->queryUserInfo, array(
+
+        return requests::get($this->queryUserInfo, array(
             "aac001" => $this->aac001,
             "startrow" => $startrow,
             "endrow" => $endrow,
-            "number" => $number)), true);
-        print_r($canBaoInfo);
-        return $canBaoInfo;
+            "number" => $number));
     }
 
     /***
@@ -129,12 +120,8 @@ class curlModel
             $this->aac001 = null;
         }
         if (is_null($this->aac001)) {
-            echo "ERROR";
-            return "Not Login!";
-        } else {
-            echo $this->aac001;
+            return  null;
         }
-        echo "\n";
 // 然后就开始查询
         $startrow = 1;
         $endrow = 10000;
@@ -144,7 +131,6 @@ class curlModel
             "startrow" => $startrow,
             "endrow" => $endrow,
             "number" => $number)), true);
-        print_r($canBaoInfo);
         return $canBaoInfo;
     }
 }

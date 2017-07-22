@@ -15,7 +15,6 @@ $(function () {
             alert("密码不能为空！");
             return false;
         }
-
         $.post("/ScrapWeb/index.php",{'action': 'Login', 'userName': userName, 'password': password})
             .done(function( data ) {
                 alert( "Data Loaded: " + data );
