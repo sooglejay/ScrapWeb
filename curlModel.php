@@ -44,6 +44,7 @@ class curlModel
         requests::post($this->loginUrl, $params);
 
         // 此处要返回一个标志 告诉用户已经登录成功，可以去get一个网页，查看能否get到
+        return true;
 
     }
 

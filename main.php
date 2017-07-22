@@ -20,10 +20,7 @@ class MainApp
 
     public function doLogin()
     {
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        curlModel::getInstance()->doLogin($userName, $password);
-        $this->userInfo = curlModel::getInstance()->getUserBasicInfo();
+
     }
 }
 $main = new MainApp();
