@@ -88,7 +88,6 @@ $footer = <<<ET
             </body>
             </html>
 ET;
-
         $response = "<tr><td>身份证号:</td><td>" . $userInfo['aac002'] . "</td></tr>" .
             "<tr><td>姓名:</td><td> " . $userInfo['aac003'] . "</td></tr>" .
             "<tr><td>性别:</td><td> " . $userInfo['aac004'] . "</td></tr>" .
