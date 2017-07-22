@@ -1,7 +1,7 @@
 <?php
-require_once 'cliScriptScrap.php';
+require_once 'WebCurlModel.php';
 
-class WebHandler
+class WebController
 {
     private $curlHandler;
 
@@ -13,7 +13,7 @@ class WebHandler
         if (isset($_POST) && isset($_POST['username'])) {
             $userName = $_POST['username'];
             $password = $_POST['password'];
-            $this->curlHandler = new CurlHandler();
+            $this->curlHandler = new WebCurlModel();
             $this->curlHandler->doLogin($userName, $password);
             $indexHtml = file_get_contents("./web/index.html");
             echo $indexHtml;
@@ -29,5 +29,5 @@ class WebHandler
     }
 }
 
-new WebHandler();
+new WebController();
 ?>

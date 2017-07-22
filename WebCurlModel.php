@@ -2,7 +2,7 @@
 ini_set("memory_limit", "1024M");
 require dirname(__FILE__) . '/../phpspider/core/init.php';
 
-class CurlHandler
+class WebCurlModel
 {
 
     private $getAAC = "http://www.63si.com.cn:8000/lsapp_server/front/wxlogin/getAAC001";
