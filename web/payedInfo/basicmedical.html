@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>乐山公共服务</title>
-    <link rel="stylesheet" href="../css/downup.css">
-    <script src="../js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
+    <link rel="stylesheet" href="/ScrapWeb/css/downup.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
 </head>
 <body>
 <div class="title">
@@ -32,32 +32,12 @@
 </body>
 <script>
     $(function(){
-        /*----------字段说明------------
 
-         aac001--个人编号
-         startrow--开始行 endrow--结束行
-         number--交易编号
-         ----------------------------------*/
-        var aac001url = "../front/wxlogin/getAAC001";
-        var queryurl = "../front/wxquery/lssi";
-        var aac001 = "";
         $.ajax({
             type : "post",
-            url : aac001url,
+            url : "",
             dataType:"json",
-            error : function() {
-            },
-            success : function(data, status, xhr) {
-                aac001 = data.aac001;
-                if(aac001 == undefined||aac001 == ""){
-                    window.location.href="relogin.html";
-                }else{
-                    var number = "cdsi0003002";
-                    $.ajax({
-                        type : "post",
-                        url : queryurl,
-                        dataType:"json",
-                        data : {"aac001":aac001,"startrow":1,"endrow":10000,"number":number},
+
                         error : function() {
                         },
                         success : function(data, status, xhr) {
@@ -81,8 +61,8 @@
                                 for(var i = 0 ; i < num ; i++){
 
                                     trDom = $('<ul></ul>');
-                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="../image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
-                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="../image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/>'+''+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png"/>'+''+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
                                     $('<li class="more moreinfo1 odd">'+'<span class="showleft childinfol">'+'参保形式'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].yac038+'</span>'+'</li>').appendTo(trDom);
                                     $('<li class="more moreinfo2">'+'<span class="showleft childinfol">'+'缴费类型'+'</span>'+'<span class="showright childinfor">'+datalist[i].aaa115+'</span>'+'</li>').appendTo(trDom);
                                     $('<li class="more moreinfo3 odd">'+'<span class="showleft childinfol">'+'缴费基数'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].akc010+'</span>'+'</li>').appendTo(trDom);
@@ -99,12 +79,9 @@
                             }
                         },
                         async : true
-                    });
-                }
-            },
-            async : true
+
         });
-    })
+    });
     function change(id){
         var len = id.length;
         var n = id.substring(4,len);

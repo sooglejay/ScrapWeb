@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>乐山公共服务</title>
-    <link rel="stylesheet" href="../css/downup.css">
-    <script src="../js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
+    <link rel="stylesheet" href="/ScrapWeb/css/downup.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
 </head>
 <body>
 <div class="title">
@@ -80,8 +80,8 @@
                                  trs.push(trDom); */
                                 for(var i=0;i<number;i++){
                                     trDom = $('<ul></ul>');
-                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="../image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
-                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="../image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
                                     $('<li class="more moreinfo1 odd">'+'<span class="showleft childinfol">'+'参保形式'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].yac038+'</span>'+'</li>').appendTo(trDom);
                                     $('<li class="more moreinfo2">'+'<span class="showleft childinfol">'+'缴费类型'+'</span>'+'<span class="showright childinfor">'+datalist[i].aaa115+'</span>'+'</li>').appendTo(trDom);
                                     $('<li class="more moreinfo3 odd">'+'<span class="showleft childinfol">'+'缴费基数'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].ajc020+'</span>'+'</li>').appendTo(trDom);

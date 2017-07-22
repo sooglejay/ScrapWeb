@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>乐山公共服务</title>
-    <link rel="stylesheet" href="../css/downup.css">
-    <script src="../js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
+    <link rel="stylesheet" href="/ScrapWeb/css/downup.css">
+    <script src="/ScrapWeb/lib/jquery.min.js" type="text/javascript" language="javascript"></script>
 </head>
 <body>
 <div class="title">
-    <h2>生育保险缴费查询</h2>
+    <h2>补充医疗缴费查询</h2>
 </div>
 <div id="demo">
     <ul>
@@ -16,13 +16,7 @@
     </ul>
 </div>
 <div class="content">
-    <!-- <div>
-        <label id="span-txt">
-            请输入年份
-        </label>
-        <input id="span-input" type="input" value=""></input>
-    </div>
-    <input class="querybutton" onclick="agedpayQuery()" type="button" value="查询"></input> -->
+
     <table border="1" cellspacing="0" id="show">
 
     </table>
@@ -52,7 +46,7 @@
                 if(aac001 == undefined||aac001 == ""){
                     window.location.href="relogin.html";
                 }else{
-                    var number = "cdsi0005002";
+                    var number = "cdsi0041002";
                     $.ajax({
                         type : "post",
                         url : queryurl,
@@ -73,13 +67,13 @@
 
                                 for(var i=0;i<number;i++){
                                     trDom = $('<ul></ul>');
-                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="../image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
-                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="../image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae002+'</span>'+'<span class="showright">'+datalist[i].aae078+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="../image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo1 odd">'+'<span class="showleft childinfol">'+'参保形式'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].yac038+'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo2">'+'<span class="showleft childinfol">'+'缴费类型'+'</span>'+'<span class="showright childinfor">'+datalist[i].aaa115+'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo3 odd">'+'<span class="showleft childinfol">'+'缴费基数'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].amc001+'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo4">'+'<span class="showleft childinfol">'+'单位缴费'+'</span>'+'<span class="showright childinfor">'+datalist[i].ymc237 +'</span>'+'</li>').appendTo(trDom);
-                                    $('<li class="more moreinfo5 odd">'+'<span class="showleft childinfol">'+'个人缴费'+'</span>'+'<span class="showright childinfor">'+datalist[i].ymc244+'</span>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead1">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae001+'</span>'+'<img onclick="change(this.id)" id="down'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/downshow.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="demohead2">'+'<img class="showleft leftpng" src="http://www.63si.com.cn:8000/lsapp_server/image/detail.png">'+'</img>'+'<span class="showleft">'+datalist[i].aae001+'</span>'+'<img onclick="hide(this.id)" id="upup'+i+'" class="upup rightpng" src="http://www.63si.com.cn:8000/lsapp_server/image/uphide.png">'+'</img>'+'</li>').appendTo(trDom);
+                                    $('<li class="more moreinfo1 odd">'+'<span class="showleft childinfol">'+'缴费基数'+'</span>'+'<span class="showright childinfor childfirstr">'+datalist[i].ykc279+'</span>'+'</li>').appendTo(trDom);
+                                    $('<li class="more moreinfo2">'+'<span class="showleft childinfol">'+'开始月份'+'</span>'+'<span class="showright childinfor">'+datalist[i].aae041+'</span>'+'</li>').appendTo(trDom);
+                                    $('<li class="more moreinfo3 odd">'+'<span class="showleft childinfol">'+'结束月份'+'</span>'+'<span class="showright childinfor">'+datalist[i].aae042+'</span>'+'</li>').appendTo(trDom);
+                                    trs.push(trDom);
+                                    $('<li class="more moreinfo4">'+'<span class="showleft childinfol">'+'缴费状态'+'</span>'+'<span class="showright childinfor">'+datalist[i].aae078+'</span>'+'</li>').appendTo(trDom);
                                     trs.push(trDom);
                                 }
                                 for(var j=0;j<trs.length;j++){
@@ -102,20 +96,20 @@
         var n = id.substring(4,len);
         $(".demohead1")[n].style.display="none";
         $(".demohead2")[n].style.display="block";
-        var max = 5;
-        for(var i=1;i<=max;i++){
-            $(".moreinfo"+i)[n].style.display="block";
-        }
+        $(".moreinfo1")[n].style.display="block";
+        $(".moreinfo2")[n].style.display="block";
+        $(".moreinfo3")[n].style.display="block";
+        $(".moreinfo4")[n].style.display="block";
     }
     function hide(id){
         var len = id.length;
         var n = id.substring(4,len);
         $(".demohead1")[n].style.display="block";
         $(".demohead2")[n].style.display="none";
-        var max = 5;
-        for(var i=1;i<=max;i++){
-            $(".moreinfo"+i)[n].style.display="none";
-        }
+        $(".moreinfo1")[n].style.display="none";
+        $(".moreinfo2")[n].style.display="none";
+        $(".moreinfo3")[n].style.display="none";
+        $(".moreinfo4")[n].style.display="none";
     }
 </script>
 </html>
