@@ -1,0 +1,260 @@
+[33m
+[ 豆瓣读书 Spider ] is started...
+
+  * PHPSpider Version: 3.0.4
+  * Documentation: https://doc.phpspider.org
+  * Task Number: 1
+
+Input "php doubandushu.php stop" to quit. Start success.
+[0m
+[36m2017-07-16 14:44:10 [debug] Find scan page: https://book.douban.com/tag/小说/[0m
+2017-07-16 14:44:10 [info] Find pages: 1 
+2017-07-16 14:44:10 [info] Waiting for collect pages: 1 
+2017-07-16 14:44:10 [info] Collected pages: 0 
+[36m2017-07-16 14:44:11 [debug] Success download page https://book.douban.com/tag/小说/ in 0.534 s[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/25862578/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/25862578/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26698660/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26698660/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/6082808/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/6082808/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1770782/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1770782/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/27045888/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/27045888/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26963900/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26963900/buylinks[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/5431784/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/5431784/buylinks[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26986954/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26986954/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26853356/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26853356/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26957760/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26957760/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/2230208/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/4820710/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/10594787/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/27006492/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/27006492/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1858513/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1858513/buylinks[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/6781808/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/6781808/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1082154/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/4913064/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1008145/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/1008145/buylinks[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26425831/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26425831/buylinks[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26878124/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26878124/?channel=subject_list&platform=web[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/25967870/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/27079142/[0m
+[36m2017-07-16 14:44:11 [debug] Find content page: https://book.douban.com/subject/26315820/[0m
+[36m2017-07-16 14:44:11 [debug] Success process page https://book.douban.com/tag/小说/ in 0.549 s[0m
+2017-07-16 14:44:11 [info] Spider running in 0d 0h 0m 1s
+2017-07-16 14:44:11 [info] Find pages: 41 
+2017-07-16 14:44:11 [info] Waiting for collect pages: 40 
+2017-07-16 14:44:11 [info] Collected pages: 1 
+[36m2017-07-16 14:44:12 [debug] Success download page https://book.douban.com/subject/25862578/ in 0.844 s[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/collections[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/3259440/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25924253/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/3646172/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/10763902/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/1084336/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/4117922/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/26118072/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/comments/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/hot[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/new[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/follows[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/new_review[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/reviews[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/annotation[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/discussion/59046959/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/discussion/59009956/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/discussion/58609530/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/discussion/612235895/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/discussion/60409486/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/discussion/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/buylinks[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/24829798/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/10442376/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/26995655/[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/doulists[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/doings[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/wishes[0m
+[36m2017-07-16 14:44:12 [debug] Find content page: https://book.douban.com/subject/25862578/offers[0m
+2017-07-16 14:44:20 [info] Result[1]: {"book_tag":"小说","book_name":"解忧杂货店","book_author":"李盈春","book_publishing_house":" 南海出版公司","book_original_name":" ナミヤ雑貨店の奇蹟","book_subtitle":"","book_translator":"","book_publishing_year":" 2014-5","book_page_num":" 291","book_price":" 39.50元","book_binding":" 精装","book_series":"新经典文库·东野圭吾作品","book_isbn":" 9787544270878","book_rating":" 8.6 ","book_rating_people":"216499","book_star5":"50.1","book_star4":"38.1","book_star3":"10.6","book_star2":"0.9","book_star1":"0.2"}
+[36m2017-07-16 14:44:20 [debug] Success process page https://book.douban.com/subject/25862578/ in 9.235 s[0m
+2017-07-16 14:44:20 [info] Spider running in 0d 0h 0m 10s
+2017-07-16 14:44:20 [info] Find pages: 70 
+2017-07-16 14:44:20 [info] Waiting for collect pages: 68 
+2017-07-16 14:44:20 [info] Collected pages: 2 
+[36m2017-07-16 14:44:21 [debug] Success download page https://book.douban.com/subject/25862578/?channel=subject_list&platform=web in 0.8 s[0m
+2017-07-16 14:44:28 [info] Result[2]: {"book_tag":"小说","book_name":"解忧杂货店","book_author":"李盈春","book_publishing_house":" 南海出版公司","book_original_name":" ナミヤ雑貨店の奇蹟","book_subtitle":"","book_translator":"","book_publishing_year":" 2014-5","book_page_num":" 291","book_price":" 39.50元","book_binding":" 精装","book_series":"新经典文库·东野圭吾作品","book_isbn":" 9787544270878","book_rating":" 8.6 ","book_rating_people":"216499","book_star5":"50.1","book_star4":"38.1","book_star3":"10.6","book_star2":"0.9","book_star1":"0.2"}
+[36m2017-07-16 14:44:28 [debug] Success process page https://book.douban.com/subject/25862578/?channel=subject_list&platform=web in 7.998 s[0m
+2017-07-16 14:44:28 [info] Spider running in 0d 0h 0m 18s
+2017-07-16 14:44:28 [info] Find pages: 70 
+2017-07-16 14:44:28 [info] Waiting for collect pages: 67 
+2017-07-16 14:44:28 [info] Collected pages: 3 
+[36m2017-07-16 14:44:29 [debug] Success download page https://book.douban.com/subject/26698660/ in 0.74 s[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/collections[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/reading/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/comments/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/hot[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/new[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/follows[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/new_review[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/reviews[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/annotation[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/discussion/613638168/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/discussion/613617836/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/discussion/614027690/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/discussion/613971284/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/discussion/613666286/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/discussion/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/buylinks[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/4705346/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/6574633/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/6756604/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/5389581/[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/doulists[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/doings[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/wishes[0m
+[36m2017-07-16 14:44:29 [debug] Find content page: https://book.douban.com/subject/26698660/offers[0m
+2017-07-16 14:44:33 [info] Result[3]: {"book_tag":"小说","book_name":"巨人的陨落","book_author":"于大卫","book_publishing_house":" 江苏凤凰文艺出版社","book_original_name":" Fall of Giants","book_subtitle":" 世纪三部曲","book_translator":"","book_publishing_year":" 2016-5-1","book_page_num":" 1168","book_price":" 129.80元","book_binding":" 平装","book_series":"世纪三部曲","book_isbn":" 9787539989891","book_rating":" 9.0 ","book_rating_people":"20756","book_star5":"61.1","book_star4":"31.8","book_star3":"6.2","book_star2":"0.6","book_star1":"0.3"}
+[36m2017-07-16 14:44:33 [debug] Success process page https://book.douban.com/subject/26698660/ in 5.026 s[0m
+2017-07-16 14:44:33 [info] Spider running in 0d 0h 0m 23s
+2017-07-16 14:44:33 [info] Find pages: 94 
+2017-07-16 14:44:33 [info] Waiting for collect pages: 90 
+2017-07-16 14:44:33 [info] Collected pages: 4 
+[36m2017-07-16 14:44:34 [debug] Success download page https://book.douban.com/subject/26698660/?channel=subject_list&platform=web in 0.649 s[0m
+2017-07-16 14:44:38 [info] Result[4]: {"book_tag":"小说","book_name":"巨人的陨落","book_author":"于大卫","book_publishing_house":" 江苏凤凰文艺出版社","book_original_name":" Fall of Giants","book_subtitle":" 世纪三部曲","book_translator":"","book_publishing_year":" 2016-5-1","book_page_num":" 1168","book_price":" 129.80元","book_binding":" 平装","book_series":"世纪三部曲","book_isbn":" 9787539989891","book_rating":" 9.0 ","book_rating_people":"20756","book_star5":"61.1","book_star4":"31.8","book_star3":"6.2","book_star2":"0.6","book_star1":"0.3"}
+[36m2017-07-16 14:44:38 [debug] Success process page https://book.douban.com/subject/26698660/?channel=subject_list&platform=web in 4.923 s[0m
+2017-07-16 14:44:38 [info] Spider running in 0d 0h 0m 28s
+2017-07-16 14:44:38 [info] Find pages: 94 
+2017-07-16 14:44:38 [info] Waiting for collect pages: 89 
+2017-07-16 14:44:38 [info] Collected pages: 5 
+[36m2017-07-16 14:44:39 [debug] Success download page https://book.douban.com/subject/6082808/ in 0.737 s[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/collections[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/20392523/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/1017143/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/24382569/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/4908885/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/1007305/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/comments/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/hot[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/new[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/follows[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/new_review[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/reviews[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/annotation[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/discussion/39571609/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/discussion/39673972/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/discussion/47620351/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/discussion/52358757/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/discussion/49372521/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/discussion/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/buylinks[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/1424568/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/1786670/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/1059112/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/2008724/[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/doulists[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/doings[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/wishes[0m
+[36m2017-07-16 14:44:39 [debug] Find content page: https://book.douban.com/subject/6082808/offers[0m
+2017-07-16 14:44:44 [info] Result[5]: {"book_tag":"小说","book_name":"百年孤独","book_author":"\n        <span>+ 加入购书单<\/span>","book_publishing_house":" 南海出版公司","book_original_name":" Cien años de soledad","book_subtitle":"","book_translator":"","book_publishing_year":" 2011-6","book_page_num":" 360","book_price":" 39.50元","book_binding":" 精装","book_series":"新经典文库:加西亚·马尔克斯作品","book_isbn":" 9787544253994","book_rating":" 9.2 ","book_rating_people":"108253","book_star5":"67.5","book_star4":"25.8","book_star3":"5.9","book_star2":"0.5","book_star1":"0.3"}
+[36m2017-07-16 14:44:44 [debug] Success process page https://book.douban.com/subject/6082808/ in 6.41 s[0m
+2017-07-16 14:44:44 [info] Spider running in 0d 0h 0m 34s
+2017-07-16 14:44:44 [info] Find pages: 122 
+2017-07-16 14:44:44 [info] Waiting for collect pages: 116 
+2017-07-16 14:44:44 [info] Collected pages: 6 
+[36m2017-07-16 14:44:45 [debug] Success download page https://book.douban.com/subject/6082808/?channel=subject_list&platform=web in 0.7 s[0m
+2017-07-16 14:44:51 [info] Result[6]: {"book_tag":"小说","book_name":"百年孤独","book_author":"\n        <span>+ 加入购书单<\/span>","book_publishing_house":" 南海出版公司","book_original_name":" Cien años de soledad","book_subtitle":"","book_translator":"","book_publishing_year":" 2011-6","book_page_num":" 360","book_price":" 39.50元","book_binding":" 精装","book_series":"新经典文库:加西亚·马尔克斯作品","book_isbn":" 9787544253994","book_rating":" 9.2 ","book_rating_people":"108253","book_star5":"67.5","book_star4":"25.8","book_star3":"5.9","book_star2":"0.5","book_star1":"0.3"}
+[36m2017-07-16 14:44:51 [debug] Success process page https://book.douban.com/subject/6082808/?channel=subject_list&platform=web in 7.073 s[0m
+2017-07-16 14:44:51 [info] Spider running in 0d 0h 0m 41s
+2017-07-16 14:44:51 [info] Find pages: 122 
+2017-07-16 14:44:51 [info] Waiting for collect pages: 115 
+2017-07-16 14:44:51 [info] Collected pages: 7 
+[36m2017-07-16 14:44:52 [debug] Success download page https://book.douban.com/subject/1770782/ in 0.725 s[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/collections[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/reading/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/creators[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1040771/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/3995526/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1200840/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/comments/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/hot[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/new[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/follows[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/new_review[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/reviews[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/annotation[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/discussion/1314209/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/discussion/54047355/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/discussion/1034328/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/discussion/1216754/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/discussion/56067271/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/discussion/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/buylinks[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1400679/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/2154079/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1772158/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1439583/[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/doulists[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/doings[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/wishes[0m
+[36m2017-07-16 14:44:52 [debug] Find content page: https://book.douban.com/subject/1770782/offers[0m
+2017-07-16 14:44:59 [info] Result[7]: {"book_tag":"小说","book_name":"追风筝的人","book_author":"李继宏","book_publishing_house":" 上海人民出版社","book_original_name":" The Kite Runner","book_subtitle":"","book_translator":"","book_publishing_year":" 2006-5","book_page_num":" 362","book_price":" 29.00元","book_binding":" 平装","book_series":"卡勒德·胡赛尼作品","book_isbn":" 9787208061644","book_rating":" 8.8 ","book_rating_people":"273787","book_star5":"54.7","book_star4":"36.6","book_star3":"7.9","book_star2":"0.5","book_star1":"0.2"}
+[36m2017-07-16 14:44:59 [debug] Success process page https://book.douban.com/subject/1770782/ in 7.413 s[0m
+2017-07-16 14:44:59 [info] Spider running in 0d 0h 0m 49s
+2017-07-16 14:44:59 [info] Find pages: 150 
+2017-07-16 14:44:59 [info] Waiting for collect pages: 142 
+2017-07-16 14:44:59 [info] Collected pages: 8 
+[36m2017-07-16 14:44:59 [debug] Success download page https://book.douban.com/subject/1770782/?channel=subject_list&platform=web in 0.622 s[0m
+2017-07-16 14:45:05 [info] Result[8]: {"book_tag":"小说","book_name":"追风筝的人","book_author":"李继宏","book_publishing_house":" 上海人民出版社","book_original_name":" The Kite Runner","book_subtitle":"","book_translator":"","book_publishing_year":" 2006-5","book_page_num":" 362","book_price":" 29.00元","book_binding":" 平装","book_series":"卡勒德·胡赛尼作品","book_isbn":" 9787208061644","book_rating":" 8.8 ","book_rating_people":"273787","book_star5":"54.7","book_star4":"36.6","book_star3":"7.9","book_star2":"0.5","book_star1":"0.2"}
+[36m2017-07-16 14:45:05 [debug] Success process page https://book.douban.com/subject/1770782/?channel=subject_list&platform=web in 6.236 s[0m
+2017-07-16 14:45:05 [info] Spider running in 0d 0h 0m 55s
+2017-07-16 14:45:05 [info] Find pages: 150 
+2017-07-16 14:45:05 [info] Waiting for collect pages: 141 
+2017-07-16 14:45:05 [info] Collected pages: 9 
+[36m2017-07-16 14:45:06 [debug] Success download page https://book.douban.com/subject/27045888/ in 0.652 s[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/collections[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/reading/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27044650/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27062832/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27077950/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27037187/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27077944/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27044089/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27059874/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/26703640/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27040865/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27056391/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/comments/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/hot[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/new[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/follows[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/new_review[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/reviews[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/annotation[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/discussion/614856461/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/buylinks[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/1770697/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/2295161/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/1940653/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/2301289/[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/doulists[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/doings[0m
+[36m2017-07-16 14:45:06 [debug] Find content page: https://book.douban.com/subject/27045888/wishes[0m
+2017-07-16 14:45:14 [info] Result[9]: {"book_tag":"小说","book_name":"囚鸟","book_author":"\n        <span>+ 加入购书单<\/span>","book_publishing_house":" 百花洲文艺出版社","book_original_name":" Jailbird","book_subtitle":"","book_translator":"","book_publishing_year":" 2017-6","book_page_num":" 304","book_price":" 38.00元","book_binding":" 平装","book_series":false,"book_isbn":" 9787550022348","book_rating":" 8.9 ","book_rating_people":"634","book_star5":"66.9","book_star4":"23.8","book_star3":"7.1","book_star2":"1.3","book_star1":"0.9"}
+[36m2017-07-16 14:45:14 [debug] Success process page https://book.douban.com/subject/27045888/ in 9.067 s[0m
+2017-07-16 14:45:14 [info] Spider running in 0d 0h 1m 4s
+2017-07-16 14:45:14 [info] Find pages: 178 
+2017-07-16 14:45:14 [info] Waiting for collect pages: 168 
+2017-07-16 14:45:14 [info] Collected pages: 10 
+[36m2017-07-16 14:45:15 [debug] Success download page https://book.douban.com/subject/27045888/?channel=subject_list&platform=web in 0.671 s[0m
