@@ -4,4 +4,4 @@
 
 3、最后，使用的方式非常简单 只需要 指向 XXX/ScrapWeb/index.php 就可以了，比如 有一个按钮，设置它的超链接指向 XXX/ScrapWeb/index.php 点击它就会跳转了。
 
-test123
+
