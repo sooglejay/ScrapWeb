@@ -7,4 +7,4 @@
  */
 
 echo 23;
-echo shell_exec("cd ScrapWeb & git update");
+echo shell_exec("cd ScrapWeb & git checkout .");
