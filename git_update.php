@@ -6,5 +6,5 @@
  * Time: 下午8:25
  */
 
-echo 45;
+echo 78;
 echo shell_exec("git pull");
