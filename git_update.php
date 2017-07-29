@@ -7,4 +7,4 @@
  */
 
 echo 78;
-echo shell_exec("git pull");
+echo shell_exec("cd ScrapWeb & git pull");
