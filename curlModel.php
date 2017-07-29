@@ -1,6 +1,6 @@
 <?php
 ini_set("memory_limit", "1024M");
-require dirname(__FILE__) . '/../phpspider/core/init.php';
+require dirname(__FILE__) . '/phpspider/core/init.php';
 
 class curlModel
 {

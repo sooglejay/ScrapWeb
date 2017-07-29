@@ -32,7 +32,7 @@ class App
         if (isset($_REQUEST['action'])) {
             $this->$_REQUEST['action']();
         } else {
-            $loginHtml = file_get_contents("./web/login.html");
+            $loginHtml = file_get_contents("./html/login.html");
             echo $loginHtml;
         }
     }
@@ -56,7 +56,7 @@ class App
 
         if (curlModel::getInstance()->doLogin()) {
             // login success
-            $htmlStr = file_get_contents("./web/index.html");
+            $htmlStr = file_get_contents("./html/index.html");
             echo $htmlStr;
         } else {
             echo "Login Error!";
