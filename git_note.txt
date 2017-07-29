@@ -12,3 +12,7 @@ git push -u origin master
 git remote add origin https://github.com/sooglejay/scrap.git
 git push -u origin master
 
+
+
+##test git update ##
+
