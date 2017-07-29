@@ -6,5 +6,5 @@
  * Time: 下午8:25
  */
 
-echo 78;
+echo 56;
 echo shell_exec("cd ScrapWeb & git pull");
