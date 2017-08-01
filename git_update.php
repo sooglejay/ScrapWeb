@@ -7,4 +7,4 @@
  */
 
 echo 56;
-echo shell_exec("ls");
+echo shell_exec("dir");

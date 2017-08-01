@@ -34,7 +34,7 @@
 
         .panel-body {
             padding-top: 30px;
-            background-color: rgba(2555,255,255,.3);
+            background-color: rgba(2555, 255, 255, .3);
         }
 
         #particles {
@@ -58,34 +58,39 @@
 
         <div class="row">
             <div class="col-lg-12" align="center">
-               <img src="/ScrapWeb/image/top01.jpg" class="img-responsive">
+                <img src="/ScrapWeb/image/top01.jpg" class="img-responsive">
             </div>
         </div>
 
-        <div class="panel panel-default" >
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-title text-center">乐山市社保查询</div>
             </div>
 
-            <div class="panel-body" >
+            <div class="panel-body">
 
-                <form name="form" id="form" action="/ScrapWeb/index.php" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                <form name="form" id="form" action="/ScrapWeb/index.php" class="form-horizontal"
+                      enctype="multipart/form-data" method="POST">
 
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="userName" type="text" class="form-control" name="userName" value="" placeholder="请输入手机号">
+                        <input id="userName" type="text" class="form-control" name="userName" value=""
+                               placeholder="请输入手机号">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                        <input id="password" type="password" class="form-control" name="password"
+                               placeholder="Password">
                     </div>
-                    <input hidden value="doLogin" name="action" />
+                    <input hidden value="doLogin" name="action"/>
 
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <button type="submit" class="btn btn-success pull-right"><i class="glyphicon glyphicon-log-in"></i> 登录</button>
+                            <button type="submit" class="btn btn-success pull-right"><i
+                                    class="glyphicon glyphicon-log-in"></i> 登录
+                            </button>
                         </div>
                     </div>
 
@@ -94,10 +99,26 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <div id="particles"></div>
-
+<div class="navbar navbar-default navbar-fixed-bottom" align="center">
+    <div class="container" align="center">
+        <p class="navbar-text">若没有登录账号,请到APP或网厅完成注册 </p>
+    </div>
+    <div class="container" align="center">
+        <p class="navbar-text"><a href="http://www.63si.com.cn:8888/lswtqt/toRegister.jhtml">去网厅完成注册</a>| 智慧人社app下载↓ </p>
+    </div>
+    <div class="container" align="center">
+        <p class="navbar-text"><a
+                href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yinhai.si.leshan">--android下载--</a></p>
+    </div>
+    <div class="container" align="center">
+        <p class="navbar-text"><a href="https://itunes.apple.com/cn/app/le-shan-zhi-hui-ren-she/id1169845129">--ios下载--</a>
+        </p>
+    </div>
+</div>
 <script type="text/javascript" src="/ScrapWeb/lib/jquery.min.js"></script>
 <script type="text/javascript" src="/ScrapWeb/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/ScrapWeb/js/nfsl205.js"></script>
