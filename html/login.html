@@ -47,28 +47,32 @@
             position: absolute;
             z-index: -2;
         }
+        .nopadding {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
     </style>
 </head>
 <body>
 
 <div class="container" align="center">
 
-    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3  nopadding">
 
         <div class="row">
-            <div class="col-lg-12" align="center">
+            <div class="col-lg-12 nopadding" align="center">
                 <img src="/ScrapWeb/image/top01.jpg" class="img-responsive">
             </div>
         </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="panel panel-default ">
+            <div class="panel-heading ">
                 <div class="panel-title text-center">乐山市社保查询</div>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body ">
 
-                <form name="form" id="form" action="/ScrapWeb/index.php" class="form-horizontal"
+                <form name="form" id="form" action="/ScrapWeb/index.php" class="form-horizontal "
                       enctype="multipart/form-data" method="POST">
 
                     <div class="input-group">
@@ -80,7 +84,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="password" type="password" class="form-control" name="password"
-                               placeholder="Password">
+                               placeholder="请输入密码">
                     </div>
                     <input hidden value="doLogin" name="action"/>
 
@@ -98,18 +102,20 @@
             </div>
         </div>
     </div>
-    <div class="container" align="center">
-        若没有登录账号,请到APP或网厅完成注册
-    </div>
-    <div class="container" align="center">
-        <a href="http://www.63si.com.cn:8888/lswtqt/toRegister.jhtml">去网厅完成注册</a>| 智慧人社app下载↓
-    </div>
-    <div class="container" align="center">
-        <a
-                href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yinhai.si.leshan">--android下载--</a>
-    </div>
-    <div class="container" align="center">
-        <a href="https://itunes.apple.com/cn/app/le-shan-zhi-hui-ren-she/id1169845129">--ios下载--</a>
+    <div>
+        <div style="visibility: hidden" class="container" align="center">
+            若没有登录账号,请到APP或网厅完成注册
+        </div>
+        <div class="container" align="center">
+            <a href="http://www.63si.com.cn:8888/lswtqt/toRegister.jhtml">去网厅完成注册</a>| 智慧人社app下载↓
+        </div>
+        <div class="container" align="center">
+            <a
+                    href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yinhai.si.leshan">--android下载--</a>
+        </div>
+        <div class="container" align="center">
+            <a href="https://itunes.apple.com/cn/app/le-shan-zhi-hui-ren-she/id1169845129">--ios下载--</a>
+        </div>
     </div>
 </div>
 
